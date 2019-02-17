@@ -1,4 +1,4 @@
-![scenario](https://user-images.githubusercontent.com/132332/52919937-d8681c00-3307-11e9-86c1-e4108cb39c92.png)
+![scenario](https://user-images.githubusercontent.com/132332/52920033-968ba580-3308-11e9-8230-24fe21e3a491.png)
 
 A toolkit to clevery abstract existing color palettes
 
