@@ -1,28 +1,44 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Icon, View } from '@allthings/elements'
+import ColorDrop from './containers/ColorDrop'
+import Navbar from './containers/Navbar'
 
-class App extends Component {
-  render() {
+export interface IAppState {
+  readonly activeColor?: string
+}
+
+class App extends React.Component<IAppState> {
+  public readonly state = {
+    activeColor: 'BlackIntense',
+  }
+  public render(): JSX.Element {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+      <View
+        direction="column"
+        fill
+        style={{
+          height: '100%',
+          overflowX: 'hidden',
+          overflowY: 'hidden',
+        }}
+      >
+        <Navbar />
+        <View alignH="center" alignV="stretch" fill direction="row">
+          <View
+            fill
+            // flex={80}
+            style={{
+              minHeight: 490,
+              overflowY: 'scroll',
+              position: 'relative',
+            }}
           >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+            <ColorDrop color="#333333" colorName="colorName" />
+          </View>
+        </View>
+      </View>
+    )
   }
 }
 
-export default App;
+export default App

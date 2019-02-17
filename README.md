@@ -1,3 +1,7 @@
+# scenario
+
+A toolkit to clevery abstract existing color palettes
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
