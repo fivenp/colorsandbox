@@ -1,4 +1,4 @@
-# scenario
+![scenario](https://user-images.githubusercontent.com/132332/52919937-d8681c00-3307-11e9-86c1-e4108cb39c92.png)
 
 A toolkit to clevery abstract existing color palettes
 

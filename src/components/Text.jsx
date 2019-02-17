@@ -7,9 +7,9 @@ import neue from 'neue'
 if (typeof window !== `undefined`) {
   neue.load([
     {
-      families: ['Open Sans:n4,n4i,n6,n6i,n8,n8i'],
+      families: ['Open Sans:n4,n4i,n6,n6i,n8,n8i', 'Oswald:200'],
       css:
-        '//fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,800,800i',
+        '//fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,800,800i|Oswald:200',
     },
   ])
 }
@@ -25,13 +25,25 @@ const availableSizes = {
 }
 
 export const createTextStyles = (
-  { block, italic, strong, size, underline, lineThrough, align, autoBreak } = {
+  {
+    block,
+    italic,
+    logoFont,
+    strong,
+    size,
+    underline,
+    lineThrough,
+    align,
+    autoBreak,
+  } = {
     size: 'm',
   },
 ) => {
   return css({
     display: block ? 'block' : 'inline',
-    fontFamily: '"Open Sans", Helvetica, Arial, sans-serif',
+    fontFamily: logoFont
+      ? '"Oswald", Helvetica, Arial, sans-serif'
+      : '"Open Sans", Helvetica, Arial, sans-serif',
     fontStyle: italic && 'italic',
     fontWeight: strong && '600',
     fontSize: availableSizes[size],
@@ -72,6 +84,7 @@ class Text extends React.Component {
     children: PropTypes.node,
     color: PropTypes.string,
     italic: PropTypes.bool,
+    logoFont: PropTypes.bool,
     size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl', 'giant']),
     strong: PropTypes.bool,
     underline: PropTypes.bool,
@@ -81,6 +94,7 @@ class Text extends React.Component {
   static defaultProps = {
     size: 'l',
     block: true,
+    logoFont: false,
     color: 'text',
   }
 
@@ -90,6 +104,7 @@ class Text extends React.Component {
       block,
       children,
       italic,
+      logoFont,
       size,
       strong,
       align,
@@ -102,6 +117,7 @@ class Text extends React.Component {
     const styles = createTextStyles({
       block,
       italic,
+      logoFont,
       strong,
       size,
       underline,
