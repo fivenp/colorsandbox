@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { alpha, ColorPalette } from '@allthings/colors'
 import { Icon, View } from '@allthings/elements'
-import Text from '../components/Text'
+import Logo from '../components/Logo'
 
 export interface INavbarProps {}
 
@@ -22,7 +22,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           height: 40,
         }}
       >
-        <Text size="xs">Navbar</Text>
+        <Logo />
       </View>
     )
   }

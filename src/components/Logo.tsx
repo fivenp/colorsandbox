@@ -1,28 +1,39 @@
 import * as React from 'react'
-import { alpha, ColorPalette } from '@allthings/colors'
-import { Icon, View } from '@allthings/elements'
+import { alpha } from '@allthings/colors'
+import { View } from '@allthings/elements'
+import Text from '../components/Text'
+import { textColors } from '../utils/palette'
+import Drop from './Drop'
 
-export interface ITypographyProps {
-  readonly color: string
-  readonly colorName?: string
+interface ILogoProp {
+  readonly textColor?: string
 }
 
-interface ITypographyState {
-  readonly color: string
-  readonly colorName: string
-}
-
-class Typography extends React.Component<ITypographyProps, ITypographyState> {
+class Logo extends React.Component<ILogoProp> {
   public readonly state = {
-    color: '#000000',
-    colorName: '',
+    textColor: textColors.dark,
   }
 
   public render(): JSX.Element {
-    const { color, colorName } = this.state
+    const { textColor } = this.state
 
-    return <View direction="row" fill alignH="center" alignV="center" />
+    return (
+      <View
+        direction="row"
+        fill
+        alignH="start"
+        alignV="center"
+        style={{ marginLeft: 10 }}
+      >
+        <Drop color="#24C333" gradient size={0.07} />
+        <View style={{ marginLeft: 10, textTransform: 'uppercase' }}>
+          <Text color={textColor} size="xs">
+            scenario
+          </Text>
+        </View>
+      </View>
+    )
   }
 }
 
-export default Typography
+export default Logo
