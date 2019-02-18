@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { alpha } from '@allthings/colors'
-import { Icon, View } from '@allthings/elements'
+import { Icon, Text, View } from '@allthings/elements'
 import ColorDrop from './containers/ColorDrop'
 import Navbar from './containers/Navbar'
 import { textColors, colors } from './utils/palette'
@@ -68,6 +68,10 @@ class App extends React.Component<IAppState> {
     const color = Object.values(colors)[this.state.activeColor]
     const colorName = Object.keys(colors)[this.state.activeColor]
 
+    const backgroundColorName = Object.keys(backgroundColors)[
+      this.state.activeBackgroundColor
+    ]
+
     const textColor = textColors.dark
     const textColorLight = alpha(textColor, 0.4)
 
@@ -94,6 +98,17 @@ class App extends React.Component<IAppState> {
             }}
           >
             <KeyboardNavigationIcon color={textColorLight} />
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 15,
+              left: 15,
+            }}
+          >
+            <Text color={textColorLight} size="xs">
+              {backgroundColorName}
+            </Text>
           </View>
           <View
             fill
