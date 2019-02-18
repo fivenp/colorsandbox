@@ -2,20 +2,14 @@ import * as React from 'react'
 import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import Text from '../components/Text'
+import { matchingTextColor } from '../utils/contrast'
 import { textColors } from '../utils/palette'
 import Drop from './Drop'
 
-interface ILogoProp {
-  readonly textColor?: string
-}
-
-class Logo extends React.Component<ILogoProp> {
-  public readonly state = {
-    textColor: textColors.dark,
-  }
-
+class Logo extends React.Component {
   public render(): JSX.Element {
-    const { textColor } = this.state
+    const bgColor = document.body.style.backgroundColor || '#fff000'
+    const textColor = matchingTextColor(textColors.dark, bgColor)
 
     return (
       <View

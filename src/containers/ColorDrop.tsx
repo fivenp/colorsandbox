@@ -5,8 +5,9 @@ import { View } from '@allthings/elements'
 import ConvertedColorValues from '../components/ConvertedColorValues'
 import Drop from '../components/Drop'
 import Text from '../components/Text'
-import { textColors } from '../utils/palette'
+import { matchingTextColor } from '../utils/contrast'
 import { lighten, darken } from '../utils/conversions'
+import { textColors } from '../utils/palette'
 
 export interface IColorDropProps {
   readonly color: string
@@ -27,7 +28,8 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
   public render(): JSX.Element {
     const { color, colorName } = this.props
 
-    const textColor = textColors.dark
+    const bgColor = document.body.style.backgroundColor || '#fff000'
+    const textColor = matchingTextColor(textColors.dark, bgColor)
     const textColorLight = alpha(textColor, 0.4)
 
     const convertedColor = {
@@ -121,7 +123,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
             </Text>
           </View>
           <Text
-            color={color}
+            color={matchingTextColor(color, bgColor, 1.2)}
             size="giant"
             strong
             style={{ fontWeight: 800, fontSize: 48 }}

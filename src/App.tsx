@@ -5,6 +5,7 @@ import KeyboardNavigationIcon from './components/KeyboardNavigation'
 import ColorDrop from './containers/ColorDrop'
 import Navbar from './containers/Navbar'
 import { textColors, colors } from './utils/palette'
+import { matchingTextColor } from './utils/contrast'
 
 export interface IAppState {
   readonly activeColor?: number
@@ -72,8 +73,12 @@ class App extends React.Component<IAppState> {
       this.state.activeBackgroundColor
     ]
 
-    const textColor = textColors.dark
+    const textColor = matchingTextColor(
+      textColors.dark,
+      document.body.style.backgroundColor,
+    )
     const textColorLight = alpha(textColor, 0.4)
+    const separatorColor = alpha(textColor, 0.1)
 
     return (
       <View
@@ -85,7 +90,7 @@ class App extends React.Component<IAppState> {
           overflowY: 'hidden',
         }}
       >
-        <Navbar />
+        <Navbar separatorColor={separatorColor} />
         <View alignH="center" alignV="stretch" fill direction="row">
           <View
             style={{
