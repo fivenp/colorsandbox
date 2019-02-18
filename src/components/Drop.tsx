@@ -34,8 +34,8 @@ class Drop extends React.Component<IDropProps> {
               y2="100%"
               gradientTransform="rotate(30)"
             >
-              <stop offset="0%" stop-color="#13A020" stop-opacity="1" />
-              <stop offset="60%" stop-color="#24C333" stop-opacity="1" />
+              <stop offset="0%" stopColor="#13A020" stopOpacity="1" />
+              <stop offset="60%" stopColor="#24C333" stopOpacity="1" />
             </linearGradient>
           </defs>
         )}
@@ -46,9 +46,8 @@ class Drop extends React.Component<IDropProps> {
           fillRule="nonzero"
           strokeWidth={stroke ? 30 : 0}
           stroke={strokeColor}
-          stroke-alignment="inside"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     )
