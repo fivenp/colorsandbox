@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { alpha } from '@allthings/colors'
-import { Icon, Text, View } from '@allthings/elements'
+import { Text, View } from '@allthings/elements'
+import KeyboardNavigationIcon from './components/KeyboardNavigation'
 import ColorDrop from './containers/ColorDrop'
 import Navbar from './containers/Navbar'
 import { textColors, colors } from './utils/palette'
-import KeyboardNavigationIcon from './components/KeyboardNavigation'
 
 export interface IAppState {
   readonly activeColor?: number
