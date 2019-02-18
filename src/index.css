@@ -5,6 +5,14 @@ body,
   margin: 0;
   padding: 0;
 }
+
+div {
+    transition: color 0.5s ease-in-out;
+}
+path {
+    transition: fill 0.5s ease-in-out, stroke 0.5s ease-in-out;
+}
 body {
   background-color: #333333;
+  transition: background-color 0.5s ease-in-out;
 }
