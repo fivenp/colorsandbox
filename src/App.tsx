@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { alpha } from '@allthings/colors'
 import { Icon, View } from '@allthings/elements'
 import ColorDrop from './containers/ColorDrop'
 import Navbar from './containers/Navbar'
-import { colors } from './utils/palette'
+import { textColors, colors } from './utils/palette'
+import KeyboardNavigationIcon from './components/KeyboardNavigation'
 
 export interface IAppState {
   readonly activeColor?: number
@@ -66,7 +68,8 @@ class App extends React.Component<IAppState> {
     const color = Object.values(colors)[this.state.activeColor]
     const colorName = Object.keys(colors)[this.state.activeColor]
 
-    console.log(color)
+    const textColor = textColors.dark
+    const textColorLight = alpha(textColor, 0.4)
 
     return (
       <View
@@ -80,6 +83,18 @@ class App extends React.Component<IAppState> {
       >
         <Navbar />
         <View alignH="center" alignV="stretch" fill direction="row">
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 15,
+              right: 35,
+              width: 60,
+              height: 60,
+              opacity: 0.5,
+            }}
+          >
+            <KeyboardNavigationIcon color={textColorLight} />
+          </View>
           <View
             fill
             // flex={80}
