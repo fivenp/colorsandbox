@@ -12,6 +12,8 @@ class App extends React.Component<IAppState> {
     activeColor: 'BlackIntense',
   }
   public render(): JSX.Element {
+    document.body.style.backgroundColor = '#ffffff'
+
     return (
       <View
         direction="column"
