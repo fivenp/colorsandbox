@@ -8,6 +8,7 @@ import Text from '../components/Text'
 import { matchingTextColor } from '../utils/contrast'
 import { lighten, darken } from '../utils/conversions'
 import { textColors } from '../utils/palette'
+import SeparatorText from '../components/SeparatorText'
 
 export interface IColorDropProps {
   readonly color: string
@@ -68,6 +69,12 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
             <View>
               <Drop color={convertedColor.lightened.hex} stroke size={0.3} />
             </View>
+            <SeparatorText
+              bgColor={bgColor}
+              textColor={textColor}
+              textColorLight={textColorLight}
+              text="lighten()"
+            />
           </View>
           <View style={{ position: 'relative', zIndex: 2 }}>
             {/* <Drop color={color} gradientColor={convertedColor.darkened.hex} stroke size={1.3} /> */}
@@ -75,6 +82,12 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
           </View>
           <View style={{ bottom: 75, position: 'absolute', zIndex: 3 }}>
             <Drop color={convertedColor.darkened.hex} stroke size={0.3} />
+            <SeparatorText
+              bgColor={bgColor}
+              textColor={textColor}
+              textColorLight={textColorLight}
+              text="darken()"
+            />
           </View>
           <hr
             style={{
