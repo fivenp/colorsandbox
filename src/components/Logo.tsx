@@ -14,7 +14,6 @@ class Logo extends React.Component {
     return (
       <View
         direction="row"
-        fill
         alignH="start"
         alignV="center"
         style={{ marginLeft: 10 }}

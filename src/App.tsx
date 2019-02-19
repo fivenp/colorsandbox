@@ -90,7 +90,12 @@ class App extends React.Component<IAppState> {
           overflowY: 'hidden',
         }}
       >
-        <Navbar separatorColor={separatorColor} />
+        <Navbar
+          activeView="ColorDrop"
+          textColor={textColor}
+          textColorLight={textColorLight}
+          separatorColor={separatorColor}
+        />
         <View alignH="center" alignV="stretch" fill direction="row">
           <View
             style={{
