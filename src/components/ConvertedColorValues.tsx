@@ -15,76 +15,76 @@ class ConvertedColorValues extends React.Component<IConvertedColorValuesProp> {
     return (
       <View direction="row">
         <View direction="row">
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             HEX &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.hex}
           </Text>
         </View>
         <View direction="row" style={{ marginLeft: 10 }}>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             R &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.rgb[0]} &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             G &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.rgb[1]} &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             B &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.rgb[2]} &nbsp;
           </Text>
         </View>
         <View direction="row" style={{ marginLeft: 10 }}>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             C &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.cmyk[0]} &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             M &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.cmyk[1]} &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             Y &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.cmyk[2]} &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             K &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.cmyk[3]} &nbsp;
           </Text>
         </View>
         <View direction="row" style={{ marginLeft: 10 }}>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             H &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.hsl[0]} &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             S &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.hsl[1]}% &nbsp;
           </Text>
-          <Text color={textColorLight} size="xs">
+          <Text color={textColorLight} size="s">
             L &nbsp;
           </Text>
-          <Text color={textColor} size="xs" strong>
+          <Text color={textColor} size="s" strong>
             {convertedColor.hsl[2]}% &nbsp;
           </Text>
         </View>

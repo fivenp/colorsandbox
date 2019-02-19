@@ -8,7 +8,7 @@ import Drop from './Drop'
 
 class Logo extends React.Component {
   public render(): JSX.Element {
-    const bgColor = document.body.style.backgroundColor || '#fff000'
+    const bgColor = document.body.style.backgroundColor || '#ffffff'
     const textColor = matchingTextColor(textColors.dark, bgColor)
 
     return (
