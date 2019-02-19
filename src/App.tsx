@@ -95,8 +95,8 @@ class App extends React.Component<IAppState> {
           <View
             style={{
               position: 'absolute',
-              bottom: 15,
-              right: 35,
+              bottom: 5,
+              right: 15,
               width: 60,
               height: 60,
               opacity: 0.5,
@@ -107,11 +107,11 @@ class App extends React.Component<IAppState> {
           <View
             style={{
               position: 'absolute',
-              bottom: 15,
-              left: 15,
+              bottom: 20,
+              left: 20,
             }}
           >
-            <Text color={textColorLight} size="xs">
+            <Text color={textColor} size="xs">
               {backgroundColorName}
             </Text>
           </View>
