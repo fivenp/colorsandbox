@@ -7,6 +7,7 @@ import ColorDrop from './containers/ColorDrop'
 import Navbar from './containers/Navbar'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
+import basicActions from './store/actions/basic'
 
 export interface IScenarioProps {
   readonly activeColor: number
@@ -14,6 +15,8 @@ export interface IScenarioProps {
   readonly activeView: string
   readonly backgroundColors: IColors
   readonly colors: IColors
+  readonly setActiveBackgroundColor: (value: number) => void
+  readonly setActiveColor: (value: number) => void
 }
 
 export interface IColors {
@@ -30,28 +33,24 @@ class Scenario extends React.Component<IScenarioProps> {
   }
 
   public nextColor = () => {
-    this.state.activeColor !== Object.keys(this.props.colors).length - 1 &&
-      this.setState({ activeColor: this.state.activeColor + 1 })
+    this.props.activeColor !== Object.keys(this.props.colors).length - 1 &&
+      this.props.setActiveColor(this.props.activeColor + 1)
   }
 
   public prevColor = () => {
-    this.state.activeColor !== 0 &&
-      this.setState({ activeColor: this.state.activeColor - 1 })
+    this.props.activeColor !== 0 &&
+      this.props.setActiveColor(this.props.activeColor - 1)
   }
 
   public nextBackgroundColor = () => {
-    this.state.activeBackgroundColor !==
+    this.props.activeBackgroundColor !==
       Object.keys(this.state.backgroundColors).length - 1 &&
-      this.setState({
-        activeBackgroundColor: this.state.activeBackgroundColor + 1,
-      })
+      this.props.setActiveBackgroundColor(this.props.activeBackgroundColor + 1)
   }
 
   public prevBackgroundColor = () => {
-    this.state.activeBackgroundColor !== 0 &&
-      this.setState({
-        activeBackgroundColor: this.state.activeBackgroundColor - 1,
-      })
+    this.props.activeBackgroundColor !== 0 &&
+      this.props.setActiveBackgroundColor(this.props.activeBackgroundColor - 1)
   }
 
   private checkKey = (e: any) => {
@@ -72,12 +71,11 @@ class Scenario extends React.Component<IScenarioProps> {
 
   public render(): JSX.Element {
     const {
-      activeView,
       colors,
       backgroundColors,
       activeColor,
       activeBackgroundColor,
-    } = this.state
+    } = this.props
 
     document.body.style.backgroundColor = Object.values(backgroundColors)[
       activeBackgroundColor
@@ -157,14 +155,15 @@ class Scenario extends React.Component<IScenarioProps> {
 const mapStateToProps = ({
   activeColor,
   activeBackgroundColor,
-  activeView,
   colors,
 }: any) => ({
   activeColor,
   activeBackgroundColor,
-  activeView,
   backgroundColors: { white: '#ffffff', ...colors },
   colors,
 })
 
-export default connect(mapStateToProps)(Scenario)
+export default connect(
+  mapStateToProps,
+  basicActions,
+)(Scenario)
