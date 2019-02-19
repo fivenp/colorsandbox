@@ -15,6 +15,7 @@ export interface IScenarioProps {
   readonly activeView: string
   readonly backgroundColors: IColors
   readonly colors: IColors
+  readonly paletteIsOpen: boolean
   readonly setActiveBackgroundColor: (value: number) => void
   readonly setActiveColor: (value: number) => void
 }
@@ -30,6 +31,7 @@ class Scenario extends React.Component<IScenarioProps> {
     activeView: this.props.activeView,
     colors: this.props.colors,
     backgroundColors: this.props.backgroundColors,
+    paletteIsOpen: this.props.paletteIsOpen,
   }
 
   public nextColor = () => {
@@ -75,6 +77,7 @@ class Scenario extends React.Component<IScenarioProps> {
       backgroundColors,
       activeColor,
       activeBackgroundColor,
+      paletteIsOpen,
     } = this.props
 
     document.body.style.backgroundColor = Object.values(backgroundColors)[
@@ -107,8 +110,10 @@ class Scenario extends React.Component<IScenarioProps> {
         }}
       >
         <Navbar
-          textColor={textColor}
-          textColorLight={textColorLight}
+          textColor={paletteIsOpen ? textColors.dark : textColor}
+          textColorLight={
+            paletteIsOpen ? alpha(textColors.dark, 0.4) : textColorLight
+          }
           separatorColor={separatorColor}
         />
         <View alignH="center" alignV="stretch" fill direction="row">
@@ -156,11 +161,13 @@ const mapStateToProps = ({
   activeColor,
   activeBackgroundColor,
   colors,
+  paletteIsOpen,
 }: any) => ({
   activeColor,
   activeBackgroundColor,
   backgroundColors: { white: '#ffffff', ...colors },
   colors,
+  paletteIsOpen,
 })
 
 export default connect(

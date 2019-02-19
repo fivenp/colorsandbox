@@ -7,7 +7,7 @@ class App extends React.Component {
   public render(): JSX.Element {
     return (
       <Provider store={store}>
-        <View id="RootScenarioContainer">
+        <View id="RootScenarioContainer" style={{ height: '100%' }}>
           <Scenario />
         </View>
       </Provider>

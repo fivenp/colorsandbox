@@ -1,15 +1,21 @@
 import * as React from 'react'
 import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
+import { connect } from 'redux-zero/react'
 import Text from '../components/Text'
 import { matchingTextColor } from '../utils/contrast'
 import { textColors } from '../utils/palette'
 import Drop from './Drop'
 
-class Logo extends React.Component {
+interface ILogoProps {
+  readonly paletteIsOpen: boolean
+}
+class Logo extends React.Component<ILogoProps> {
   public render(): JSX.Element {
     const bgColor = document.body.style.backgroundColor || '#ffffff'
-    const textColor = matchingTextColor(textColors.dark, bgColor)
+    const textColor = this.props.paletteIsOpen
+      ? textColors.dark
+      : matchingTextColor(textColors.dark, bgColor)
 
     return (
       <View
@@ -29,4 +35,8 @@ class Logo extends React.Component {
   }
 }
 
-export default Logo
+const mapStateToProps = ({ paletteIsOpen }: any) => ({
+  paletteIsOpen,
+})
+
+export default connect(mapStateToProps)(Logo)
