@@ -132,7 +132,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
               <Drop color={color} stroke size={0.06} />
             </View>
             <Text color={textColorLight} size="xs" style={{ marginLeft: 10 }}>
-              90% - 10%
+              alpha(0.9) - alpha(0.1)
             </Text>
           </View>
           <Text
