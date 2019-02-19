@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { alpha, ColorPalette } from '@allthings/colors'
 import { Icon, View } from '@allthings/elements'
+import { connect } from 'redux-zero/react'
 import Logo from '../components/Logo'
 
 import IosColorPaletteOutline from 'react-ionicons/lib/IosColorPaletteOutline'
@@ -14,12 +15,16 @@ import IosListBox from 'react-ionicons/lib/IosListBox'
 import LogoGithub from 'react-ionicons/lib/LogoGithub'
 import { css, style } from 'glamor'
 
+import navbarActions from '../store/actions/navbar'
+
 export interface INavbarProps {
   readonly activeView: string
-  readonly paletteIsOpen?: boolean
+  readonly paletteIsOpen: boolean
   readonly separatorColor: string
   readonly textColor: string
   readonly textColorLight: string
+  readonly togglePalette: () => void
+  readonly setActiveView: (value: string) => void
 }
 
 interface INavbarState {
@@ -45,21 +50,18 @@ const styles = {
 
 class Navbar extends React.Component<INavbarProps, INavbarState> {
   public readonly state = {
-    activeView: 'ColorDrop',
-    paletteIsOpen: false,
-  }
-
-  public onIconClick = (view: string) => {
-    this.setState({ activeView: view })
-  }
-
-  public togglePalette = () => {
-    this.setState({ paletteIsOpen: !this.state.paletteIsOpen })
+    activeView: this.props.activeView,
+    paletteIsOpen: this.props.paletteIsOpen,
   }
 
   public render(): JSX.Element {
-    const { activeView, paletteIsOpen } = this.state
-    const { separatorColor, textColor, textColorLight } = this.props
+    const {
+      activeView,
+      paletteIsOpen,
+      separatorColor,
+      textColor,
+      textColorLight,
+    } = this.props
 
     return (
       <View
@@ -75,7 +77,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
         <View direction="row" alignV="center" style={{ marginRight: 10 }}>
           {paletteIsOpen === true ? (
             <View
-              onClick={this.togglePalette}
+              onClick={this.props.togglePalette}
               {...css([styles.icon, styles.activeIcon])}
               title="Toggle my Color Palette"
             >
@@ -83,7 +85,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
             </View>
           ) : (
             <View
-              onClick={this.togglePalette}
+              onClick={this.props.togglePalette}
               {...styles.icon}
               title="Toggle my Color Palette"
             >
@@ -101,7 +103,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           ) : (
             <View
               onClick={() => {
-                this.onIconClick('ColorDrop')
+                this.props.setActiveView('ColorDrop')
               }}
               {...styles.icon}
               title="Color harmony view"
@@ -120,7 +122,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           ) : (
             <View
               onClick={() => {
-                this.onIconClick('ColorVariations')
+                this.props.setActiveView('ColorVariations')
               }}
               {...styles.icon}
               title="Fullsize color view"
@@ -139,7 +141,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           ) : (
             <View
               onClick={() => {
-                this.onIconClick('Typography')
+                this.props.setActiveView('Typography')
               }}
               {...styles.icon}
               title="Typography view"
@@ -163,4 +165,12 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
   }
 }
 
-export default Navbar
+const mapStateToProps = ({ activeView, paletteIsOpen }: any) => ({
+  activeView,
+  paletteIsOpen,
+})
+
+export default connect(
+  mapStateToProps,
+  navbarActions,
+)(Navbar)

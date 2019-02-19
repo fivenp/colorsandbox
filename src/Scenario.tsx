@@ -109,7 +109,6 @@ class Scenario extends React.Component<IScenarioProps> {
         }}
       >
         <Navbar
-          activeView={activeView}
           textColor={textColor}
           textColorLight={textColorLight}
           separatorColor={separatorColor}
