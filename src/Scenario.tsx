@@ -8,7 +8,8 @@ import Navbar from './containers/Navbar'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
 import basicActions from './store/actions/basic'
-
+import Drop from './components/Drop'
+import { css } from 'glamor'
 export interface IScenarioProps {
   readonly activeColor: number
   readonly activeBackgroundColor: number
@@ -22,6 +23,30 @@ export interface IScenarioProps {
 
 export interface IColors {
   readonly [key: string]: string
+}
+
+const styles = {
+  palette: css({
+    height: 0,
+    backgroundColor: '#ffffff',
+    transition: 'height 0.3s ease-in-out, padding 0.2s ease-in-out',
+    borderBottom: '0px solid #efefef',
+    overflowY: 'hidden',
+    overflowX: 'scroll',
+  }),
+  openPalette: css({
+    borderBottomWidth: 1,
+    padding: 10,
+    height: 60,
+  }),
+  paletteItem: css({
+    padding: 10,
+    cursor: 'pointer',
+    borderRadius: 10,
+  }),
+  activePaletteItem: css({
+    backgroundColor: '#efefef',
+  }),
 }
 
 class Scenario extends React.Component<IScenarioProps> {
@@ -102,7 +127,7 @@ class Scenario extends React.Component<IScenarioProps> {
     return (
       <View
         direction="column"
-        fill
+        justify-content="space-between"
         style={{
           height: '100%',
           overflowX: 'hidden',
@@ -118,7 +143,51 @@ class Scenario extends React.Component<IScenarioProps> {
             paletteIsOpen ? alpha(textColors.dark, 0.1) : separatorColor
           }
         />
-        <View alignH="center" alignV="stretch" fill direction="row">
+        <View
+          alignH="center"
+          alignV="stretch"
+          direction="row"
+          {...css([
+            styles.palette,
+            paletteIsOpen && styles.openPalette,
+            { borderBottomColor: separatorColor },
+          ])}
+        >
+          {Object.keys(colors).map((color, i) => (
+            <View
+              direction="row"
+              alignV="center"
+              onClick={() => {
+                this.props.setActiveColor(i)
+              }}
+              key={i}
+              {...css([
+                styles.paletteItem,
+                this.props.activeColor === i && styles.activePaletteItem,
+              ])}
+            >
+              <Drop color={Object.values(colors)[i]} size={0.07} />
+              <Text
+                color={alpha(textColors.dark, 0.4)}
+                size="xs"
+                style={{ marginLeft: 5 }}
+              >
+                {color}
+              </Text>
+            </View>
+          ))}
+        </View>
+        <View
+          alignH="center"
+          alignV="stretch"
+          flex={100}
+          direction="row"
+          style={{
+            minHeight: 490,
+            overflowY: 'scroll',
+            position: 'relative',
+          }}
+        >
           <View
             style={{
               position: 'absolute',
@@ -144,15 +213,47 @@ class Scenario extends React.Component<IScenarioProps> {
           </View>
           <View
             fill
-            // flex={80}
             style={{
-              minHeight: 490,
-              overflowY: 'scroll',
               position: 'relative',
             }}
           >
             <ColorDrop color={color} colorName={colorName} />
           </View>
+        </View>
+        <View
+          alignH="center"
+          alignV="stretch"
+          direction="row"
+          {...css([
+            styles.palette,
+            paletteIsOpen && styles.openPalette,
+            { borderTopColor: separatorColor },
+          ])}
+        >
+          {Object.keys(backgroundColors).map((color, i) => (
+            <View
+              direction="row"
+              alignV="center"
+              onClick={() => {
+                this.props.setActiveBackgroundColor(i)
+              }}
+              key={i}
+              {...css([
+                styles.paletteItem,
+                this.props.activeBackgroundColor === i &&
+                  styles.activePaletteItem,
+              ])}
+            >
+              <Drop color={Object.values(backgroundColors)[i]} size={0.07} />
+              <Text
+                color={alpha(textColors.dark, 0.4)}
+                size="xs"
+                style={{ marginLeft: 5 }}
+              >
+                {color}
+              </Text>
+            </View>
+          ))}
         </View>
       </View>
     )
