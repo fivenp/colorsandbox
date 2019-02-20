@@ -28,14 +28,18 @@ export interface IColors {
 const styles = {
   palette: css({
     height: 0,
-    backgroundColor: '#ffffff',
-    transition: 'height 0.3s ease-in-out, padding 0.2s ease-in-out',
+    backgroundColor: 'transparent',
+    transition:
+      'height 0.3s ease-in-out, padding 0.2s ease-in-out, background 0.2s ease-in-out',
     borderBottom: '0px solid #efefef',
     borderTop: '0px solid #efefef',
     overflowY: 'hidden',
     overflowX: 'scroll',
+    overflowScrolling: 'touch',
+    WebkitOverflowScrolling: 'touch',
   }),
   openPalette: css({
+    backgroundColor: '#ffffff',
     borderBottomWidth: 1,
     padding: 10,
     height: 60,
@@ -149,7 +153,7 @@ class Scenario extends React.Component<IScenarioProps> {
           }
         />
         <View
-          alignH="center"
+          alignH="start"
           alignV="stretch"
           direction="row"
           {...css([
@@ -226,7 +230,7 @@ class Scenario extends React.Component<IScenarioProps> {
           </View>
         </View>
         <View
-          alignH="center"
+          alignH="start"
           alignV="stretch"
           direction="row"
           {...css([
