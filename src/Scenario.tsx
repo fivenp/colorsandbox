@@ -31,6 +31,7 @@ const styles = {
     backgroundColor: '#ffffff',
     transition: 'height 0.3s ease-in-out, padding 0.2s ease-in-out',
     borderBottom: '0px solid #efefef',
+    borderTop: '0px solid #efefef',
     overflowY: 'hidden',
     overflowX: 'scroll',
   }),
@@ -38,6 +39,10 @@ const styles = {
     borderBottomWidth: 1,
     padding: 10,
     height: 60,
+  }),
+  openBottomPalette: css({
+    borderTopWidth: 1,
+    borderBottomWidth: 0,
   }),
   paletteItem: css({
     padding: 10,
@@ -183,7 +188,7 @@ class Scenario extends React.Component<IScenarioProps> {
           flex={100}
           direction="row"
           style={{
-            minHeight: 490,
+            // minHeight: 490,
             overflowY: 'scroll',
             position: 'relative',
           }}
@@ -227,6 +232,7 @@ class Scenario extends React.Component<IScenarioProps> {
           {...css([
             styles.palette,
             paletteIsOpen && styles.openPalette,
+            paletteIsOpen && styles.openBottomPalette,
             { borderTopColor: separatorColor },
           ])}
         >
