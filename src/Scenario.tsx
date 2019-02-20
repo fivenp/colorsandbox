@@ -114,7 +114,9 @@ class Scenario extends React.Component<IScenarioProps> {
           textColorLight={
             paletteIsOpen ? alpha(textColors.dark, 0.4) : textColorLight
           }
-          separatorColor={separatorColor}
+          separatorColor={
+            paletteIsOpen ? alpha(textColors.dark, 0.1) : separatorColor
+          }
         />
         <View alignH="center" alignV="stretch" fill direction="row">
           <View
