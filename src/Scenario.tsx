@@ -28,7 +28,7 @@ export interface IColors {
 }
 
 const styles = {
-  none: {},
+  none: css({}),
 }
 
 class Scenario extends React.Component<IScenarioProps> {
