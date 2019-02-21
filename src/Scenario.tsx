@@ -8,6 +8,7 @@ import Text from './components/Text'
 import ColorDrop from './containers/ColorDrop'
 import ColorList from './containers/ColorList'
 import Navbar from './containers/Navbar'
+import Typography from './containers/Typography'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
 import basicActions from './store/actions/basic'
@@ -165,14 +166,16 @@ class Scenario extends React.Component<IScenarioProps> {
             fill
             style={{
               position: 'relative',
+              width: '100%',
             }}
           >
-            <ColorDrop color={color} colorName={colorName} />
+            {activeView === 'ColorDrop' && (
+              <ColorDrop color={color} colorName={colorName} />
+            )}
+            {activeView === 'Typography' && <Typography />}
           </View>
         </View>
-        {activeView !== 'Typography' && (
-          <ColorList textColor={textColor} isBottomPalette />
-        )}
+        <ColorList textColor={textColor} isBottomPalette />
       </View>
     )
   }
