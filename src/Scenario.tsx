@@ -138,17 +138,17 @@ class Scenario extends React.Component<IScenarioProps> {
       >
         <Navbar
           textColor={
-            paletteIsOpen || activeView !== 'ColorDrop'
+            paletteIsOpen // || activeView === 'Typography'
               ? textColors.dark
               : textColor
           }
           textColorLight={
-            paletteIsOpen || activeView !== 'ColorDrop'
+            paletteIsOpen // || activeView === 'Typography'
               ? alpha(textColors.dark, 0.4)
               : textColorLight
           }
           separatorColor={
-            paletteIsOpen || activeView !== 'ColorDrop'
+            paletteIsOpen // || activeView === 'Typography'
               ? alpha(textColors.dark, 0.1)
               : separatorColor
           }

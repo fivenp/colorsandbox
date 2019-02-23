@@ -14,10 +14,10 @@ interface ILogoProps {
 class Logo extends React.Component<ILogoProps> {
   public render(): JSX.Element {
     const bgColor = document.body.style.backgroundColor || '#ffffff'
-    const textColor =
-      this.props.activeView !== 'ColorDrop' || this.props.paletteIsOpen
-        ? textColors.dark
-        : matchingTextColor(textColors.dark, bgColor)
+    const textColor = /*this.props.activeView === 'Typography' || */ this.props
+      .paletteIsOpen
+      ? textColors.dark
+      : matchingTextColor(textColors.dark, bgColor)
 
     return (
       <View
