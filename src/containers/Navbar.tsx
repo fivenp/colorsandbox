@@ -37,8 +37,11 @@ const styles = {
     marginLeft: 10,
     opacity: 0.6,
     padding: 10,
+    paddingLeft: 15,
+    paddingBottom: 5,
     transition: 'opacity 0.3s ease-in-out',
     cursor: 'pointer',
+    borderLeft: '1px solid #efefef',
     ':hover': {
       opacity: 8,
     },
@@ -80,7 +83,11 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           {paletteIsOpen === true ? (
             <View
               onClick={this.props.togglePalette}
-              {...css([styles.icon, styles.activeIcon])}
+              {...css([
+                styles.icon,
+                styles.activeIcon,
+                { borderLeftColor: separatorColor },
+              ])}
               title="Toggle my Color Palette"
             >
               <IosColorPalette color={textColor} />
@@ -88,7 +95,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           ) : (
             <View
               onClick={this.props.togglePalette}
-              {...styles.icon}
+              {...css([styles.icon, { borderLeftColor: separatorColor }])}
               title="Toggle my Color Palette"
             >
               <IosColorPaletteOutline color={textColor} />
@@ -97,7 +104,11 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
 
           {activeView === 'ColorDrop' ? (
             <View
-              {...css([styles.icon, styles.activeIcon])}
+              {...css([
+                styles.icon,
+                styles.activeIcon,
+                { borderLeftColor: separatorColor },
+              ])}
               title="Color harmony view"
             >
               <IosColorFilter color={textColor} />
@@ -107,7 +118,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
               onClick={() => {
                 this.props.setActiveView('ColorDrop')
               }}
-              {...styles.icon}
+              {...css([styles.icon, { borderLeftColor: separatorColor }])}
               title="Color harmony view"
             >
               <IosColorFilterOutline color={textColor} />
@@ -116,7 +127,11 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
 
           {activeView === 'ColorVariations' ? (
             <View
-              {...css([styles.icon, styles.activeIcon])}
+              {...css([
+                styles.icon,
+                styles.activeIcon,
+                { borderLeftColor: separatorColor },
+              ])}
               title="Fullsize color view"
             >
               <IosColorFill color={textColor} />
@@ -126,7 +141,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
               onClick={() => {
                 this.props.setActiveView('ColorVariations')
               }}
-              {...styles.icon}
+              {...css([styles.icon, { borderLeftColor: separatorColor }])}
               title="Fullsize color view"
             >
               <IosColorFillOutline color={textColor} />
@@ -135,7 +150,11 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
 
           {activeView === 'Typography' ? (
             <View
-              {...css([styles.icon, styles.activeIcon])}
+              {...css([
+                styles.icon,
+                styles.activeIcon,
+                { borderLeftColor: separatorColor },
+              ])}
               title="Typography view"
             >
               <IosListBox color={textColor} />
@@ -145,7 +164,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
               onClick={() => {
                 this.props.setActiveView('Typography')
               }}
-              {...styles.icon}
+              {...css([styles.icon, { borderLeftColor: separatorColor }])}
               title="Typography view"
             >
               <IosListBoxOutline color={textColor} />
@@ -156,7 +175,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
             onClick={() =>
               window.open('https://github.com/fivenp/scenario', '_blank')
             }
-            {...styles.icon}
+            {...css([styles.icon, { borderLeftColor: separatorColor }])}
             title="Scenario - ColorPalette Documentation"
           >
             <LogoGithub color={textColor} />

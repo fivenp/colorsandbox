@@ -57,13 +57,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
     console.log(convertedColor)
 
     return (
-      <View
-        direction="row"
-        fill
-        alignH="center"
-        alignV="center"
-        style={{ paddingBottom: 35 }}
-      >
+      <View direction="row" fill alignH="center" alignV="center">
         <View direction="column" alignV="center" alignH="center">
           <View style={{ top: 40, position: 'absolute', zIndex: 3 }}>
             <View>
@@ -80,7 +74,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
             {/* <Drop color={color} gradientColor={convertedColor.darkened.hex} stroke size={1.3} /> */}
             <Drop color={color} stroke size={1.3} />
           </View>
-          <View style={{ bottom: 75, position: 'absolute', zIndex: 3 }}>
+          <View style={{ bottom: 40, position: 'absolute', zIndex: 3 }}>
             <Drop color={convertedColor.darkened.hex} stroke size={0.3} />
             <SeparatorText
               bgColor={bgColor}

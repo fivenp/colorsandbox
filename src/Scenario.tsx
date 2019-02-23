@@ -1,9 +1,12 @@
 import React from 'react'
 import { alpha } from '@allthings/colors'
-import { Text, View } from '@allthings/elements'
+import { View } from '@allthings/elements'
+import { css } from 'glamor'
 import { connect } from 'redux-zero/react'
 import KeyboardNavigationIcon from './components/KeyboardNavigation'
+import Text from './components/Text'
 import ColorDrop from './containers/ColorDrop'
+import ColorList from './containers/ColorList'
 import Navbar from './containers/Navbar'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
@@ -22,6 +25,10 @@ export interface IScenarioProps {
 
 export interface IColors {
   readonly [key: string]: string
+}
+
+const styles = {
+  none: css({}),
 }
 
 class Scenario extends React.Component<IScenarioProps> {
@@ -73,10 +80,11 @@ class Scenario extends React.Component<IScenarioProps> {
 
   public render(): JSX.Element {
     const {
-      colors,
-      backgroundColors,
       activeColor,
       activeBackgroundColor,
+      activeView,
+      backgroundColors,
+      colors,
       paletteIsOpen,
     } = this.props
 
@@ -102,7 +110,7 @@ class Scenario extends React.Component<IScenarioProps> {
     return (
       <View
         direction="column"
-        fill
+        justify-content="space-between"
         style={{
           height: '100%',
           overflowX: 'hidden',
@@ -114,9 +122,22 @@ class Scenario extends React.Component<IScenarioProps> {
           textColorLight={
             paletteIsOpen ? alpha(textColors.dark, 0.4) : textColorLight
           }
-          separatorColor={separatorColor}
+          separatorColor={
+            paletteIsOpen ? alpha(textColors.dark, 0.1) : separatorColor
+          }
         />
-        <View alignH="center" alignV="stretch" fill direction="row">
+        <ColorList textColor={textColor} />
+        <View
+          alignH="center"
+          alignV="stretch"
+          flex={100}
+          direction="row"
+          style={{
+            // minHeight: 490,
+            overflowY: 'scroll',
+            position: 'relative',
+          }}
+        >
           <View
             style={{
               position: 'absolute',
@@ -142,16 +163,16 @@ class Scenario extends React.Component<IScenarioProps> {
           </View>
           <View
             fill
-            // flex={80}
             style={{
-              minHeight: 490,
-              overflowY: 'scroll',
               position: 'relative',
             }}
           >
             <ColorDrop color={color} colorName={colorName} />
           </View>
         </View>
+        {activeView !== 'Typography' && (
+          <ColorList textColor={textColor} isBottomPalette />
+        )}
       </View>
     )
   }
@@ -160,11 +181,13 @@ class Scenario extends React.Component<IScenarioProps> {
 const mapStateToProps = ({
   activeColor,
   activeBackgroundColor,
+  activeView,
   colors,
   paletteIsOpen,
 }: any) => ({
   activeColor,
   activeBackgroundColor,
+  activeView,
   backgroundColors: { white: '#ffffff', ...colors },
   colors,
   paletteIsOpen,
