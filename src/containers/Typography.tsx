@@ -6,6 +6,7 @@ import { css } from 'glamor'
 import Text from '../components/Text'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
+import Drop from '../components/Drop'
 
 export interface ITypographyProps {
   readonly activeColor: number
@@ -25,7 +26,12 @@ const styles = {
   }),
 }
 class Typography extends React.Component<ITypographyProps> {
-  private renderText = (color: string, colorLight: string) => (
+  private renderText = (
+    color: string,
+    colorLight: string,
+    headline?: string,
+    subheadline?: string,
+  ) => (
     <React.Fragment>
       <Text
         size="giant"
@@ -33,20 +39,16 @@ class Typography extends React.Component<ITypographyProps> {
         style={{ fontWeight: 800, fontSize: 48 }}
         color={color}
       >
-        Headline
+        {headline}
       </Text>
-      <Text size="giant" color={color}>
-        This is a longer subheadline
+      <Text size="giant" color={color} style={{ marginTop: -10 }}>
+        {subheadline}
       </Text>
-      <Text
-        size="m"
-        color={color}
-        style={{ margin: 20, marginLeft: 0, marginRight: 0 }}
-      >
-        Content
+      <Text size="m" color={color} style={{ marginTop: 20 }}>
+        This is a sample content in 13px fontSize
       </Text>
       <Text size="xs" color={colorLight}>
-        Small subtext
+        This is even smaller copytext with alpha() and 11px fontSize
       </Text>
     </React.Fragment>
   )
@@ -60,14 +62,16 @@ class Typography extends React.Component<ITypographyProps> {
     } = this.props
 
     const color = Object.values(colors)[activeColor]
+    const colorName = Object.keys(colors)[activeColor]
     const bgColor = Object.values(backgroundColors)[activeBackgroundColor]
+    const bgColorName = Object.keys(backgroundColors)[activeBackgroundColor]
 
     const textColor = matchingTextColor(textColors.dark, color)
     const textColorLight = alpha(textColor, 0.4)
 
     return (
       <View direction="row" fill>
-        <View flex={33} direction="column" alignH="space-between">
+        <View flex={50} direction="column" alignH="space-between">
           <View
             direction="column"
             alignV="start"
@@ -80,8 +84,34 @@ class Typography extends React.Component<ITypographyProps> {
               },
             ])}
           >
-            {this.renderText(color, alpha(color, 0.4))}
+            {this.renderText(
+              color,
+              alpha(color, 0.4),
+              colorName,
+              `on bright background`,
+            )}
           </View>
+          <View
+            direction="column"
+            alignV="start"
+            alignH="end"
+            flex={50}
+            {...css([
+              styles.typoContainer,
+              {
+                backgroundColor: color,
+              },
+            ])}
+          >
+            {this.renderText(
+              textColor,
+              textColorLight,
+              'readable color',
+              `on ${colorName} background`,
+            )}
+          </View>
+        </View>
+        <View flex={50} direction="column" alignH="space-between">
           <View
             direction="column"
             alignV="start"
@@ -94,38 +124,32 @@ class Typography extends React.Component<ITypographyProps> {
               },
             ])}
           >
-            {this.renderText(color, alpha(color, 0.4))}
+            {this.renderText(
+              color,
+              alpha(color, 0.4),
+              colorName,
+              `on dark background`,
+            )}
           </View>
-        </View>
-        <View
-          flex={33}
-          fill
-          direction="column"
-          alignV="start"
-          alignH="end"
-          {...css([
-            styles.typoContainer,
-            {
-              backgroundColor: color,
-            },
-          ])}
-        >
-          {this.renderText(textColor, textColorLight)}
-        </View>
-        <View
-          flex={33}
-          fill
-          direction="column"
-          alignV="start"
-          alignH="end"
-          {...css([
-            styles.typoContainer,
-            {
-              backgroundColor: activeBackgroundColor,
-            },
-          ])}
-        >
-          {this.renderText(color, alpha(color, 0.4))}
+          <View
+            direction="column"
+            alignV="start"
+            alignH="end"
+            flex={50}
+            {...css([
+              styles.typoContainer,
+              {
+                backgroundColor: activeBackgroundColor,
+              },
+            ])}
+          >
+            {this.renderText(
+              color,
+              alpha(color, 0.4),
+              colorName,
+              `on ${bgColorName} background`,
+            )}
+          </View>
         </View>
       </View>
     )
