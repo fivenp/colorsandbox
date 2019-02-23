@@ -3,6 +3,7 @@ import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import { css } from 'glamor'
 import { connect } from 'redux-zero/react'
+import { combineActions } from 'redux-zero/utils'
 import KeyboardNavigationIcon from './components/KeyboardNavigation'
 import Text from './components/Text'
 import ColorDrop from './containers/ColorDrop'
@@ -12,6 +13,7 @@ import Typography from './containers/Typography'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
 import basicActions from './store/actions/basic'
+import navbarActions from './store/actions/navbar'
 
 export interface IScenarioProps {
   readonly activeColor: number
@@ -22,6 +24,8 @@ export interface IScenarioProps {
   readonly paletteIsOpen: boolean
   readonly setActiveBackgroundColor: (value: number) => void
   readonly setActiveColor: (value: number) => void
+  readonly setActiveView: (value: string) => void
+  readonly togglePalette: () => void
 }
 
 export interface IColors {
@@ -76,6 +80,19 @@ class Scenario extends React.Component<IScenarioProps> {
         break
       case 'ArrowRight':
         this.nextColor()
+        break
+      case 't':
+        this.props.setActiveView('Typography')
+        break
+      case 'f':
+        this.props.setActiveView('ColorVariations')
+        break
+      case 'c':
+        this.props.setActiveView('ColorDrop')
+        break
+      case 'p':
+        this.props.togglePalette()
+        break
     }
   }
 
@@ -119,12 +136,20 @@ class Scenario extends React.Component<IScenarioProps> {
         }}
       >
         <Navbar
-          textColor={paletteIsOpen ? textColors.dark : textColor}
+          textColor={
+            paletteIsOpen || activeView !== 'ColorDrop'
+              ? textColors.dark
+              : textColor
+          }
           textColorLight={
-            paletteIsOpen ? alpha(textColors.dark, 0.4) : textColorLight
+            paletteIsOpen || activeView !== 'ColorDrop'
+              ? alpha(textColors.dark, 0.4)
+              : textColorLight
           }
           separatorColor={
-            paletteIsOpen ? alpha(textColors.dark, 0.1) : separatorColor
+            paletteIsOpen || activeView !== 'ColorDrop'
+              ? alpha(textColors.dark, 0.1)
+              : separatorColor
           }
         />
         <ColorList textColor={textColor} />
@@ -198,5 +223,5 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  basicActions,
+  combineActions(basicActions, navbarActions),
 )(Scenario)
