@@ -8,14 +8,16 @@ import { textColors } from '../utils/palette'
 import Drop from './Drop'
 
 interface ILogoProps {
+  readonly activeView: string
   readonly paletteIsOpen: boolean
 }
 class Logo extends React.Component<ILogoProps> {
   public render(): JSX.Element {
     const bgColor = document.body.style.backgroundColor || '#ffffff'
-    const textColor = this.props.paletteIsOpen
-      ? textColors.dark
-      : matchingTextColor(textColors.dark, bgColor)
+    const textColor =
+      this.props.activeView !== 'ColorDrop' || this.props.paletteIsOpen
+        ? textColors.dark
+        : matchingTextColor(textColors.dark, bgColor)
 
     return (
       <View
@@ -35,7 +37,8 @@ class Logo extends React.Component<ILogoProps> {
   }
 }
 
-const mapStateToProps = ({ paletteIsOpen }: any) => ({
+const mapStateToProps = ({ activeView, paletteIsOpen }: any) => ({
+  activeView,
   paletteIsOpen,
 })
 
