@@ -120,7 +120,7 @@ class Typography extends React.Component<ITypographyProps> {
             {...css([
               styles.typoContainer,
               {
-                backgroundColor: '#000',
+                backgroundColor: activeBackgroundColor,
               },
             ])}
           >
@@ -128,7 +128,7 @@ class Typography extends React.Component<ITypographyProps> {
               color,
               alpha(color, 0.4),
               colorName,
-              `on dark background`,
+              `on ${bgColorName} background`,
             )}
           </View>
           <View
@@ -139,7 +139,7 @@ class Typography extends React.Component<ITypographyProps> {
             {...css([
               styles.typoContainer,
               {
-                backgroundColor: activeBackgroundColor,
+                backgroundColor: '#000',
               },
             ])}
           >
@@ -147,7 +147,7 @@ class Typography extends React.Component<ITypographyProps> {
               color,
               alpha(color, 0.4),
               colorName,
-              `on ${bgColorName} background`,
+              `on dark background`,
             )}
           </View>
         </View>
