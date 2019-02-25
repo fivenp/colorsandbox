@@ -8,6 +8,7 @@ import ConvertedColorValues from '../components/ConvertedColorValues'
 import { opacity, lighten, darken } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
+import SeparatorText from '../components/SeparatorText'
 
 export interface IColorVariationsProps {
   readonly activeColor: number
@@ -25,6 +26,15 @@ const styles = {
     padding: 10,
     transition: 'background 0.2s ease-in-out',
   }),
+  colorBox: css({
+    '> div': {
+      transition: 'background 0.2s ease-in-out, opacity 0.2s ease-in-out',
+      opacity: 0,
+    },
+    ':hover > div': {
+      opacity: 1,
+    },
+  }),
 }
 class ColorVariations extends React.Component<IColorVariationsProps> {
   private renderColorBox = (
@@ -34,6 +44,7 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
     flex: number,
     convertedColor?: any,
     gradient?: boolean,
+    disableHover?: boolean,
   ) => {
     const textColor = matchingTextColor(textColors.dark, backgroundColor)
     const textColorLight = opacity(textColor, 0.7)
@@ -46,6 +57,7 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
         flex={flex}
         {...css([
           styles.colorContainer,
+          !disableHover && styles.colorBox,
           { backgroundColor },
           textSize !== 'xs' && {
             padding: 20,
@@ -91,6 +103,7 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
     const bgColor = Object.values(backgroundColors)[activeBackgroundColor]
 
     const colorName = Object.keys(colors)[activeColor]
+    const bgColorName = Object.keys(backgroundColors)[activeBackgroundColor]
 
     const convertedColor = {
       base: {
@@ -172,7 +185,35 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
           )}
           {this.renderColorBox(opacity(color, 1), '100%', 'xs', 10)}
         </View>
-        <View flex={60} direction="column" alignH="space-between">
+        <View
+          flex={60}
+          direction="column"
+          alignH="space-between"
+          style={{ position: 'relative' }}
+        >
+          <View
+            {...css({
+              position: 'absolute',
+            })}
+          >
+            <SeparatorText
+              bgColor={convertedColor.darkened.hex}
+              text={`alpha() on ${bgColorName}`}
+              direction="top"
+            />
+          </View>
+          <View
+            {...css({
+              position: 'absolute',
+              top: '6vh',
+              left: -50,
+            })}
+          >
+            <SeparatorText
+              bgColor={convertedColor.darkened.hex}
+              text={`gradient()`}
+            />
+          </View>
           {this.renderColorBox(
             color,
             colorName,
@@ -180,7 +221,20 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
             100,
             convertedColor.base,
             true,
+            true,
           )}
+          <View
+            {...css({
+              position: 'absolute',
+              bottom: '0',
+            })}
+          >
+            <SeparatorText
+              bgColor={convertedColor.base.hex}
+              text={`alpha() on white`}
+              direction="bottom"
+            />
+          </View>
         </View>
         <View flex={5} direction="row-reverse" alignH="space-between">
           {this.renderColorBox(opacity(color, 0.1, true), '10%', 'xs', 10)}
