@@ -7,36 +7,64 @@ import { textColors } from '../utils/palette'
 
 interface ISeparatorTextProp {
   readonly bgColor: string
-  readonly textColor: string
-  readonly textColorLight: string
+  readonly textColor?: string
+  readonly textColorLight?: string
   readonly text: any
+  readonly direction?: 'top' | 'bottom' | 'left'
 }
 
 class SeparatorText extends React.Component<ISeparatorTextProp> {
   public render(): JSX.Element {
-    const { bgColor, textColor, textColorLight, text } = this.props
+    const { bgColor, text, direction } = this.props
+
+    const textColor = this.props.textColor
+      ? this.props.textColor
+      : matchingTextColor(textColors.dark, bgColor)
+    const textColorLight = alpha(textColor, 0.4)
 
     return (
       <View
         fill
-        direction="row"
-        alignV="center"
-        alignH="center"
+        direction={
+          direction === 'top'
+            ? 'column'
+            : direction === 'bottom'
+              ? 'column-reverse'
+              : 'row'
+        }
+        alignV={
+          direction === 'top' || direction === 'bottom' ? 'end' : 'center'
+        }
+        alignH={
+          direction === 'top' || direction === 'bottom' ? 'end' : 'center'
+        }
         style={{
           position: 'absolute',
           zIndex: 2,
-          left: 60,
-          top: 0,
-          width: '10vw',
+          left: direction === 'top' || direction === 'bottom' ? '78vw' : 60,
+          top: direction === 'top' ? 10 : 'auto',
+          bottom: direction === 'bottom' ? 10 : 0,
+          width:
+            direction === 'top' || direction === 'bottom' ? '20vw' : '10vw',
+          height:
+            direction === 'top' || direction === 'bottom' ? '10vh' : 'auto',
         }}
       >
         <hr
           style={{
             border: 0,
-            borderTop: `1px dashed ${alpha(textColor, 0.1)}`,
-            marginLeft: 10,
-            marginRight: 10,
-            width: 120,
+            borderTop:
+              direction === 'top' || direction === 'bottom'
+                ? 'none'
+                : `1px dashed ${alpha(textColor, 0.2)}`,
+            borderLeft:
+              direction === 'top' || direction === 'bottom'
+                ? `1px dashed ${alpha(textColor, 0.2)}`
+                : 'none',
+            marginLeft: direction === 'top' || direction === 'bottom' ? 0 : 10,
+            marginRight: direction === 'top' || direction === 'bottom' ? 0 : 10,
+            width: direction === 'top' || direction === 'bottom' ? 0 : 120,
+            height: direction === 'top' || direction === 'bottom' ? 120 : 0,
             position: 'relative',
             zIndex: 1,
           }}
