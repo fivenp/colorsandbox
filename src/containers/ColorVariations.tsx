@@ -1,12 +1,11 @@
 import * as React from 'react'
 import * as convert from 'color-convert'
-import { alpha, ColorPalette } from '@allthings/colors'
 import { Icon, View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import { css } from 'glamor'
 import Text from '../components/Text'
 import ConvertedColorValues from '../components/ConvertedColorValues'
-import { lighten, darken } from '../utils/conversions'
+import { opacity, lighten, darken } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
 
@@ -37,7 +36,7 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
     gradient?: boolean,
   ) => {
     const textColor = matchingTextColor(textColors.dark, backgroundColor)
-    const textColorLight = alpha(textColor, 0.7)
+    const textColorLight = opacity(textColor, 0.7)
 
     return (
       <View
@@ -52,16 +51,20 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
             padding: 20,
           },
           gradient && {
-            background: `linear-gradient(150deg, ${darken(
+            background: `linear-gradient(170deg, ${darken(
               backgroundColor,
             )}, ${backgroundColor})`,
           },
         ])}
       >
         <Text
-          size={textSize}
+          size={typeof textSize === 'number' ? 'giant' : textSize}
           color={textSize === 'xs' ? textColorLight : textColor}
           strong={textSize === 'xs' ? false : true}
+          style={{
+            fontWeight: typeof textSize === 'number' && 800,
+            fontSize: typeof textSize === 'number' && +textSize,
+          }}
         >
           {text}
         </Text>
@@ -111,79 +114,99 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
     }
 
     return (
-      <View direction="row" fill>
-        <View flex={58} direction="column" alignH="space-between">
-          {this.renderColorBox(color, colorName, 48, 100, convertedColor.base)}
-        </View>
-        <View flex={4} direction="column" alignH="space-between">
+      <View direction="column" fill>
+        <View flex={5} direction="row-reverse" alignH="space-between">
           {this.renderColorBox(
-            alpha(color, 0.1, true, bgColor),
+            opacity(color, 0.1, true, bgColor),
             '10%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.2, true, bgColor),
+            opacity(color, 0.2, true, bgColor),
             '20%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.3, true, bgColor),
+            opacity(color, 0.3, true, bgColor),
             '30%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.4, true, bgColor),
+            opacity(color, 0.4, true, bgColor),
             '40%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.5, true, bgColor),
+            opacity(color, 0.5, true, bgColor),
             '50%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.6, true, bgColor),
+            opacity(color, 0.6, true, bgColor),
             '60%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.7, true, bgColor),
+            opacity(color, 0.7, true, bgColor),
             '70%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.8, true, bgColor),
+            opacity(color, 0.8, true, bgColor),
             '80%',
             'xs',
             10,
           )}
           {this.renderColorBox(
-            alpha(color, 0.9, true, bgColor),
+            opacity(color, 0.9, true, bgColor),
             '90%',
             'xs',
             10,
           )}
-          {this.renderColorBox(alpha(color, 1), '100%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 1), '100%', 'xs', 10)}
         </View>
-        <View flex={38} direction="column" alignH="space-between">
+        <View flex={60} direction="column" alignH="space-between">
+          {this.renderColorBox(
+            color,
+            colorName,
+            48,
+            100,
+            convertedColor.base,
+            true,
+          )}
+        </View>
+        <View flex={5} direction="row-reverse" alignH="space-between">
+          {this.renderColorBox(opacity(color, 0.1, true), '10%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.2, true), '20%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.3, true), '30%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.4, true), '40%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.5, true), '50%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.6, true), '60%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.7, true), '70%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.8, true), '80%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 0.9, true), '90%', 'xs', 10)}
+          {this.renderColorBox(opacity(color, 1), '100%', 'xs', 10)}
+        </View>
+
+        <View flex={30} direction="column" alignH="space-between">
           {this.renderColorBox(
             lighten(color),
             'lighten()',
-            48,
+            'l',
             50,
             convertedColor.lightened,
           )}
           {this.renderColorBox(
             darken(color),
             'darken()',
-            48,
+            'l',
             50,
             convertedColor.darkened,
           )}
