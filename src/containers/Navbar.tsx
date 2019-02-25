@@ -74,7 +74,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
         style={{
           transition: 'background-color 0.2s ease-in-out',
           backgroundColor:
-            (paletteIsOpen || activeView !== 'ColorDrop') && '#ffffff',
+            paletteIsOpen /*|| activeView === 'Typography'*/ && '#ffffff',
           borderBottom: `1px solid ${separatorColor}`,
           height: 40,
         }}

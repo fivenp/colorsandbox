@@ -9,6 +9,7 @@ import Text from './components/Text'
 import ColorDrop from './containers/ColorDrop'
 import ColorList from './containers/ColorList'
 import Navbar from './containers/Navbar'
+import ColorVariations from './containers/ColorVariations'
 import Typography from './containers/Typography'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
@@ -137,17 +138,17 @@ class Scenario extends React.Component<IScenarioProps> {
       >
         <Navbar
           textColor={
-            paletteIsOpen || activeView !== 'ColorDrop'
+            paletteIsOpen // || activeView === 'Typography'
               ? textColors.dark
               : textColor
           }
           textColorLight={
-            paletteIsOpen || activeView !== 'ColorDrop'
+            paletteIsOpen // || activeView === 'Typography'
               ? alpha(textColors.dark, 0.4)
               : textColorLight
           }
           separatorColor={
-            paletteIsOpen || activeView !== 'ColorDrop'
+            paletteIsOpen // || activeView === 'Typography'
               ? alpha(textColors.dark, 0.1)
               : separatorColor
           }
@@ -197,6 +198,7 @@ class Scenario extends React.Component<IScenarioProps> {
             {activeView === 'ColorDrop' && (
               <ColorDrop color={color} colorName={colorName} />
             )}
+            {activeView === 'ColorVariations' && <ColorVariations />}
             {activeView === 'Typography' && <Typography />}
           </View>
         </View>
