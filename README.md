@@ -1,27 +1,97 @@
 ![scenario](https://user-images.githubusercontent.com/132332/52920033-968ba580-3308-11e9-8230-24fe21e3a491.png)
 
-A toolkit to clevery abstract, manage, document and export existing color palettes
+A toolkit to clevery abstract, manage, document, export and preview your color palettes
 
 ## Features
 
-WIP
+* Define a simple ColorPalette
+* Preview your programatically abstracted colors and rules
+* See how colors would harmonize together inside your palette behaves
+* Check which typography will work in which combination
+* (WIP) Access the color abstraction methods via an easy API
+* (WIP) Export all posible abstractions to CSS, Sketch, Photoshop, etc
+* (WIP) Customize the abstraction rules
+* (WIP) Enable multiple palettes
+* (WIP) Embed your colors/abstraction combination into your website/document/etc
 
 ## Try it
 
+[![scenario](https://user-images.githubusercontent.com/132332/53441884-1b14ad00-3a08-11e9-904e-5ef6d1fbbb1f.png)](https://scenario.netlify.com)
+
 https://scenario.netlify.com
-WIP
+
 
 ## How to use it
 
-WIP
+`yarn add @fivenp/scenario`
 
-## Exposed helper functions
+### (WIP) Color preview / documentation
 
-WIP
+```
+import { Scenario } from '@fivenp/scenario'
 
-## Local development 
+class App extends React.Component {
+  const myPalette = {
+      'red' : '#ff0000',
+      'green' : '#00ff00',
+      'blue' : '#0000ff',
+      'yellow' : '#ffff00',
+  }
+
+  public render(): JSX.Element {
+    return (
+      <Scenario colors={myPalette} />
+    )
+  }
+}
+
+export default App
+```
+
+### (WIP) Helper functions API
+
+```
+import { lighten } from '@fivenp/scenario'
+
+const red = '#ff0000'
+const myLightRed = lighten(red)
+
+```
+
+## (WIP) Props & Helper functions
+
+Scenario consists of two parts - one for previewing/documenting your colors - and one providing you with the matching rules for the abstractions.
+
+### (WIP) Props for `<Scenario />`
+
+| prop             | type       | default    | required   | description
+| ---------------- | ---------- | ---------- | ---------- | ----------
+| colors           | *object*   | `N/A`      | **yes**    | The palette object defining you color palette
+
+### (WIP) Exposed helper functions
+
+#### lighten(color)
+
+Lightens the provided HEX color. It programatically converts it to HSL, removes 10% of Saturation and adds 10% of Lightness to it. Returns a valid hex color
+
+| argument         | type       | description
+| ---------------- | ---------- | ----------
+| color            | *string*   | Must be a valid *hex* color - e.g. #ff0000
+
+
+#### darken(color)
+
+Darkens the provided HEX color. It programatically converts it to HSL, adds 10% of Saturation and removes 10% of Lightness to it. Returns a valid hex color
+
+| argument         | type       | description
+| ---------------- | ---------- | ----------
+| color            | *string*   | Must be a valid *hex* color - e.g. #ff0000
+
+## Local development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+You can find information about how to set up a local devenv over [here](https://github.com/fivenp/scenario/blob/master/CONTRIBUTING.md#setting-up-the-project-locally)
 
 ### Available Scripts
 
