@@ -4,7 +4,11 @@ A toolkit to clevery abstract, manage, document, export and preview your color p
 
 ## Features
 
-* Define a simple ColorPalette
+To manage your expectations upfront: **Scenario is NOT a Color Palette / Color Theme generator**
+
+You should rather see it as a visual presentation / documentation / abstraction / export / whatever helper 
+to your already existing Color Palette
+
 * Preview your programatically abstracted colors and rules
 * See how colors would harmonize together inside your palette behaves
 * Check which typography will work in which combination
@@ -23,11 +27,17 @@ https://scenario.netlify.com
 
 ## How to use it
 
+Scenario consists of two parts - one for previewing/documenting your colors - and one providing you with the matching rules for the abstractions.
+
+In both cases you should start with a simple
+
 ```shell 
 yarn add @fivenp/scenario
 ```
 
 ### (WIP) Color preview / documentation
+
+Simply import the component to your existing App and pass a color palette object down.
 
 ```tsx
 import { Scenario } from '@fivenp/scenario'
@@ -50,7 +60,17 @@ class App extends React.Component {
 export default App
 ```
 
+#### Props
+
+| prop             | type       | default    | required   | description
+| ---------------- | ---------- | ---------- | ---------- | ----------
+| colors           | `object`   | `N/A`      | **yes**    | The palette object defining your color palette
+
 ### (WIP) Helper functions API
+
+#### lighten(color)
+
+Lightens the provided HEX color. It programatically converts it to **HSL**, **removes** 10% of Saturation and **adds** 10% of Lightnes to it. Returns a valid hex color
 
 ```tsx
 import { lighten } from '@fivenp/scenario'
@@ -60,34 +80,27 @@ const myLightRed = lighten(red)
 
 ```
 
-## (WIP) Props & Helper functions
-
-Scenario consists of two parts - one for previewing/documenting your colors - and one providing you with the matching rules for the abstractions.
-
-### (WIP) Props for `<Scenario />`
-
-| prop             | type       | default    | required   | description
-| ---------------- | ---------- | ---------- | ---------- | ----------
-| colors           | *object*   | `N/A`      | **yes**    | The palette object defining you color palette
-
-### (WIP) Exposed helper functions
-
-#### lighten(color)
-
-Lightens the provided HEX color. It programatically converts it to HSL, removes 10% of Saturation and adds 10% of Lightness to it. Returns a valid hex color
-
 | argument         | type       | description
 | ---------------- | ---------- | ----------
-| color            | *string*   | Must be a valid *hex* color - e.g. #ff0000
+| color            | `string`   | Must be a valid **hex** color - e.g. `#ff0000`
 
 
 #### darken(color)
 
-Darkens the provided HEX color. It programatically converts it to HSL, adds 10% of Saturation and removes 10% of Lightness to it. Returns a valid hex color
+Darkens the provided HEX color. It programatically converts it to **HSL**, **adds** 10% of Saturation and **removes** 10% of Lightnes from it. Returns a valid hex color
+
+
+```tsx
+import { darken } from '@fivenp/scenario'
+
+const red = '#ff0000'
+const myDarkRed = darken(red)
+
+```
 
 | argument         | type       | description
 | ---------------- | ---------- | ----------
-| color            | *string*   | Must be a valid *hex* color - e.g. #ff0000
+| color            | `string`   | Must be a valid **hex** color - e.g. `#ff0000`
 
 ## Local development
 
