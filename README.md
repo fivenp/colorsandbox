@@ -16,7 +16,7 @@ A toolkit to clevery abstract, manage, document, export and preview your color p
 
 ## Try it
 
-[![scenario](https://user-images.githubusercontent.com/132332/53441884-1b14ad00-3a08-11e9-904e-5ef6d1fbbb1f.png)](https://scenario.netlify.com)
+[![scenario](https://user-images.githubusercontent.com/132332/53442167-ef45f700-3a08-11e9-99a3-9c866bc722d3.png)](https://scenario.netlify.com)
 
 https://scenario.netlify.com
 
