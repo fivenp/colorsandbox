@@ -23,11 +23,13 @@ https://scenario.netlify.com
 
 ## How to use it
 
-`yarn add @fivenp/scenario`
+```shell 
+yarn add @fivenp/scenario
+```
 
 ### (WIP) Color preview / documentation
 
-```
+```tsx
 import { Scenario } from '@fivenp/scenario'
 
 class App extends React.Component {
@@ -50,7 +52,7 @@ export default App
 
 ### (WIP) Helper functions API
 
-```
+```tsx
 import { lighten } from '@fivenp/scenario'
 
 const red = '#ff0000'
