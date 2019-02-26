@@ -21,6 +21,10 @@ export interface IColors {
   readonly [key: string]: string
 }
 
+export interface IColorVariationsState {
+  readonly withGradient: boolean
+}
+
 const styles = {
   colorContainer: css({
     padding: 10,
@@ -36,7 +40,14 @@ const styles = {
     },
   }),
 }
-class ColorVariations extends React.Component<IColorVariationsProps> {
+class ColorVariations extends React.Component<
+  IColorVariationsProps,
+  IColorVariationsState
+> {
+  public readonly state = {
+    withGradient: false,
+  }
+
   private renderColorBox = (
     backgroundColor: string,
     text: string,
@@ -58,15 +69,22 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
         {...css([
           styles.colorContainer,
           !disableHover && styles.colorBox,
-          { backgroundColor },
           textSize !== 'xs' && {
             padding: 20,
           },
-          gradient && {
-            background: `linear-gradient(170deg, ${darken(
-              backgroundColor,
-            )}, ${backgroundColor})`,
-          },
+          { background: backgroundColor },
+          gradient
+            ? {
+                backgroundImage: `linear-gradient(170deg, ${darken(
+                  backgroundColor,
+                )}, ${backgroundColor})`,
+              }
+            : {
+                backgroundImage: `linear-gradient(170deg, ${opacity(
+                  backgroundColor,
+                  0,
+                )}, ${opacity(backgroundColor, 0)})`,
+              },
         ])}
       >
         <Text
@@ -98,6 +116,8 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
       backgroundColors,
       colors,
     } = this.props
+
+    const { withGradient } = this.state
 
     const color = Object.values(colors)[activeColor]
     const bgColor = Object.values(backgroundColors)[activeBackgroundColor]
@@ -207,7 +227,11 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
               position: 'absolute',
               top: '6vh',
               left: -50,
+              cursor: 'pointer',
             })}
+            onClick={() => {
+              this.setState({ withGradient: !withGradient })
+            }}
           >
             <SeparatorText
               bgColor={convertedColor.darkened.hex}
@@ -220,7 +244,7 @@ class ColorVariations extends React.Component<IColorVariationsProps> {
             48,
             100,
             convertedColor.base,
-            true,
+            withGradient ? true : false,
             true,
           )}
           <View
