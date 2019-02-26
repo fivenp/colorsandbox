@@ -1,4 +1,4 @@
-# Contributing to CodeSandbox Client
+# Contributing to Scenario
 
 This guide was basically copy and pasted from the beloved people at [CodeSandbox](https://codesandbox.io)
 
@@ -7,7 +7,6 @@ This guide was basically copy and pasted from the beloved people at [CodeSandbox
 - [Code of Conduct](#code-of-conduct)
 - [Setting Up the project locally](#setting-up-the-project-locally)
 - [Submitting a Pull Request](#submitting-a-pull-request)
-- [Add yourself as a contributor](#add-yourself-as-a-contributor)
 
 ## Code of Conduct
 
