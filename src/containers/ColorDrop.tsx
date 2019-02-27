@@ -53,8 +53,6 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
       },
     }
 
-    console.log(convertedColor)
-
     return (
       <View direction="row" fill alignH="center" alignV="center">
         <View direction="column" alignV="center" alignH="center">
