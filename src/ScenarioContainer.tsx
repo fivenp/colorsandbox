@@ -22,7 +22,10 @@ export interface IScenarioContainerProps {
   readonly activeBackgroundColor: number
   readonly activeView: string
   readonly backgroundColors: IColors
+  readonly colorPalette: IColors
   readonly colors: IColors
+  readonly logo?: React.ReactElement<any>
+  readonly menuItem?: React.ReactElement<any>
   readonly paletteIsOpen: boolean
   readonly setActiveBackgroundColor: (value: number) => void
   readonly setActiveColor: (value: number) => void
