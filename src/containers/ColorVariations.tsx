@@ -218,7 +218,7 @@ class ColorVariations extends React.Component<
           >
             <SeparatorText
               bgColor={convertedColor.darkened.hex}
-              text={`alpha() on ${bgColorName}`}
+              text={`opacity() on ${bgColorName}`}
               direction="top"
             />
           </View>
@@ -259,7 +259,7 @@ class ColorVariations extends React.Component<
           >
             <SeparatorText
               bgColor={convertedColor.base.hex}
-              text={`alpha() on white`}
+              text={`opacity() on white`}
               direction="bottom"
             />
           </View>
