@@ -56,7 +56,7 @@ class ScenarioContainer extends React.Component<IScenarioContainerProps> {
 
   public nextBackgroundColor = () => {
     this.props.activeBackgroundColor !==
-      Object.keys(this.state.backgroundColors).length - 1 &&
+      Object.keys(this.props.backgroundColors).length - 1 &&
       this.props.setActiveBackgroundColor(this.props.activeBackgroundColor + 1)
   }
 
