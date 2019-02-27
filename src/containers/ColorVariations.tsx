@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as convert from 'color-convert'
-import { Icon, View } from '@allthings/elements'
+import { View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import { css } from 'glamor'
 import Text from '../components/Text'
@@ -235,7 +235,11 @@ class ColorVariations extends React.Component<
           >
             <SeparatorText
               bgColor={convertedColor.darkened.hex}
-              text={`gradient()`}
+              text={
+                withGradient
+                  ? `gradient() - linear-gradient(170deg) from darken(${colorName}) to ${colorName}`
+                  : `gradient()`
+              }
             />
           </View>
           {this.renderColorBox(

@@ -35,9 +35,7 @@ class SeparatorText extends React.Component<ISeparatorTextProp> {
         alignV={
           direction === 'top' || direction === 'bottom' ? 'end' : 'center'
         }
-        alignH={
-          direction === 'top' || direction === 'bottom' ? 'end' : 'center'
-        }
+        alignH={direction === 'top' || direction === 'bottom' ? 'end' : 'start'}
         style={{
           position: 'absolute',
           zIndex: 2,
@@ -69,7 +67,12 @@ class SeparatorText extends React.Component<ISeparatorTextProp> {
             zIndex: 1,
           }}
         />
-        <Text color={matchingTextColor(textColorLight, bgColor, 1.2)} size="xs">
+        <Text
+          autoBreak
+          block
+          color={matchingTextColor(textColorLight, bgColor, 1.2)}
+          size="xs"
+        >
           {text}
         </Text>
       </View>
