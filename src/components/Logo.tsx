@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import Text from '../components/Text'

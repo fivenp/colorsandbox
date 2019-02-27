@@ -1,5 +1,4 @@
 import React from 'react'
-import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import { css } from 'glamor'
 import { connect } from 'redux-zero/react'
@@ -11,6 +10,7 @@ import ColorList from './containers/ColorList'
 import Navbar from './containers/Navbar'
 import ColorVariations from './containers/ColorVariations'
 import Typography from './containers/Typography'
+import { opacity } from './utils/conversions'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
 import basicActions from './store/actions/basic'
@@ -123,8 +123,8 @@ class Scenario extends React.Component<IScenarioProps> {
       textColors.dark,
       document.body.style.backgroundColor,
     )
-    const textColorLight = alpha(textColor, 0.4)
-    const separatorColor = alpha(textColor, 0.1)
+    const textColorLight = opacity(textColor, 0.4)
+    const separatorColor = opacity(textColor, 0.1)
 
     return (
       <View
@@ -144,12 +144,12 @@ class Scenario extends React.Component<IScenarioProps> {
           }
           textColorLight={
             paletteIsOpen // || activeView === 'Typography'
-              ? alpha(textColors.dark, 0.4)
+              ? opacity(textColors.dark, 0.4)
               : textColorLight
           }
           separatorColor={
             paletteIsOpen // || activeView === 'Typography'
-              ? alpha(textColors.dark, 0.1)
+              ? opacity(textColors.dark, 0.1)
               : separatorColor
           }
         />
@@ -218,7 +218,7 @@ const mapStateToProps = ({
   activeColor,
   activeBackgroundColor,
   activeView,
-  backgroundColors: { white: '#ffffff', ...colors },
+  backgroundColors: { white: '#ffffff', black: '#000000', ...colors },
   colors,
   paletteIsOpen,
 })

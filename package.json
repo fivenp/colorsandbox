@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@allthings/colors": "3.2.0",
     "@allthings/elements": "4.2.2",
     "@types/color-convert": "1.9.0",
     "@types/jest": "24.0.5",

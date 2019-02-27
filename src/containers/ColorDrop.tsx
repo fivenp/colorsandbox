@@ -1,12 +1,11 @@
 import * as React from 'react'
 import * as convert from 'color-convert'
-import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import ConvertedColorValues from '../components/ConvertedColorValues'
 import Drop from '../components/Drop'
 import Text from '../components/Text'
 import { matchingTextColor } from '../utils/contrast'
-import { lighten, darken } from '../utils/conversions'
+import { opacity, lighten, darken } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import SeparatorText from '../components/SeparatorText'
 
@@ -31,7 +30,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
 
     const bgColor = document.body.style.backgroundColor || '#fff000'
     const textColor = matchingTextColor(textColors.dark, bgColor)
-    const textColorLight = alpha(textColor, 0.4)
+    const textColorLight = opacity(textColor, 0.4)
 
     const convertedColor = {
       base: {
@@ -87,7 +86,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
             style={{
               transform: 'rotate(90)',
               border: 0,
-              borderLeft: `1px solid ${alpha(textColor, 0.1)}`,
+              borderLeft: `1px solid ${opacity(textColor, 0.1)}`,
               position: 'absolute',
               height: 'auto',
               bottom: 140,
@@ -126,7 +125,7 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
               <Drop color={color} stroke size={0.06} />
             </View>
             <Text color={textColorLight} size="xs" style={{ marginLeft: 10 }}>
-              alpha(0.9) - alpha(0.1)
+              opacity(0.9) - opacity(0.1)
             </Text>
           </View>
           <Text
