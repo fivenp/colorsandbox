@@ -1,6 +1,8 @@
-![scenario](https://user-images.githubusercontent.com/132332/52920033-968ba580-3308-11e9-8230-24fe21e3a491.png)
-
-A toolkit to clevery abstract, manage, document, export and preview your color palettes
+<h1 align="center">
+  <a href="https://scenario.netlify.com"><img src="https://user-images.githubusercontent.com/132332/52920033-968ba580-3308-11e9-8230-24fe21e3a491.png" style="border:0;max-width:100%" alt="scenario logo" title="scenario logo"></a>
+  <br>
+</h1>
+<p align="center" style="font-size: 1.2rem;">A toolkit to clevery abstract, manage, document, export and preview your color palettes</p>
 
 ## Table of Contents
 
@@ -8,7 +10,6 @@ A toolkit to clevery abstract, manage, document, export and preview your color p
 - [Try it](#try-it)
 - [How to use it](#how-to-use-it)
   * [(WIP) Color preview / documentation](#wip-color-preview--documentation)
-    + [Props](#props)
   * [(WIP) Helper functions API](#wip-helper-functions-api)
     + [lighten(color)](#lightencolor)
     + [darken(color)](#darkencolor)
@@ -17,9 +18,13 @@ A toolkit to clevery abstract, manage, document, export and preview your color p
 
 ## Features
 
-To manage your expectations upfront: **Scenario is NOT a Color Palette / Color Theme generator**
+> To manage your expectations upfront: **Scenario is NOT a Color Palette / Color Theme generator**
 
 You should rather see it as a visual presentation / documentation / abstraction / export / whatever helper to your already existing Color Palette
+
+<hr />
+
+The main features are
 
 * Preview your programatically abstracted colors and rules
 * See how colors would harmonize together inside your palette behaves
@@ -34,7 +39,7 @@ You should rather see it as a visual presentation / documentation / abstraction 
 
 [![scenario](https://user-images.githubusercontent.com/132332/53442167-ef45f700-3a08-11e9-99a3-9c866bc722d3.png)](https://scenario.netlify.com)
 
-https://scenario.netlify.com
+<p align="center" style="font-size: 1.2rem;">https://scenario.netlify.com</p>
 
 
 ## How to use it
@@ -49,7 +54,7 @@ yarn add @fivenp/scenario
 
 ### (WIP) Color preview / documentation
 
-Simply import the component to your existing App and pass a color palette object down.
+Simply import the component to your existing React App and pass a color palette object down.
 
 ```tsx
 import { Scenario } from '@fivenp/scenario'
