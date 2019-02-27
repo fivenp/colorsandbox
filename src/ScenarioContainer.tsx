@@ -11,6 +11,7 @@ import Navbar from './containers/Navbar'
 import ColorVariations from './containers/ColorVariations'
 import Typography from './containers/Typography'
 import { opacity } from './utils/conversions'
+import { IColors } from './utils/interfaces'
 import { textColors } from './utils/palette'
 import { matchingTextColor } from './utils/contrast'
 import basicActions from './store/actions/basic'
@@ -27,10 +28,6 @@ export interface IScenarioContainerProps {
   readonly setActiveColor: (value: number) => void
   readonly setActiveView: (value: string) => void
   readonly togglePalette: () => void
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 const styles = {

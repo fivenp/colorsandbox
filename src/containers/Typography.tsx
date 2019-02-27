@@ -6,16 +6,13 @@ import Text from '../components/Text'
 import { opacity } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
+import { IColors } from '../utils/interfaces'
 
 export interface ITypographyProps {
   readonly activeColor: number
   readonly activeBackgroundColor: number
   readonly backgroundColors: IColors
   readonly colors: IColors
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 const styles = {

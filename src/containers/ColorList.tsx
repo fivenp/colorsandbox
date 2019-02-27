@@ -4,6 +4,7 @@ import { connect } from 'redux-zero/react'
 import Drop from '../components/Drop'
 import Text from '../components/Text'
 import { opacity } from '../utils/conversions'
+import { IColors } from '../utils/interfaces'
 import { textColors } from '../utils/palette'
 import basicActions from '../store/actions/basic'
 import { css } from 'glamor'
@@ -18,10 +19,6 @@ export interface IColorListProps {
   readonly isBottomPalette?: boolean
   readonly setActiveBackgroundColor: (value: number) => void
   readonly setActiveColor: (value: number) => void
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 const styles = {

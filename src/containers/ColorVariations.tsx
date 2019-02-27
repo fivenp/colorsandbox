@@ -8,6 +8,7 @@ import ConvertedColorValues from '../components/ConvertedColorValues'
 import { opacity, lighten, darken } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
+import { IColors } from '../utils/interfaces'
 import SeparatorText from '../components/SeparatorText'
 
 export interface IColorVariationsProps {
@@ -15,10 +16,6 @@ export interface IColorVariationsProps {
   readonly activeBackgroundColor: number
   readonly backgroundColors: IColors
   readonly colors: IColors
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 export interface IColorVariationsState {
