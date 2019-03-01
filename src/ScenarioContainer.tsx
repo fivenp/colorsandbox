@@ -20,9 +20,8 @@ import navbarActions from './store/actions/navbar'
 export interface IScenarioContainerProps {
   readonly activeColor: number
   readonly activeBackgroundColor: number
-  readonly activeView: string
+  readonly activeView: 'ColorDrop' | 'ColorVariations' | 'Typography'
   readonly backgroundColors: IColors
-  readonly colorPalette: IColors
   readonly colors: IColors
   readonly logo?: React.ReactElement<any>
   readonly menuItem?: React.ReactElement<any>

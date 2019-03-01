@@ -6,22 +6,33 @@ import ScenarioContainer from './ScenarioContainer'
 import { IColors } from './utils/interfaces'
 
 export interface IScenarioProps {
-  readonly colorPalette?: IColors
+  readonly activeColor?: number
+  readonly activeBackgroundColor?: number
+  readonly activeView?: 'ColorDrop' | 'ColorVariations' | 'Typography'
+  readonly colors?: IColors
   readonly logo?: React.ReactElement<any>
   readonly menuItem?: React.ReactElement<any>
 }
 class Scenario extends React.Component<IScenarioProps> {
   public render(): JSX.Element {
-    const { colorPalette, logo, menuItem } = this.props
+    const {
+      activeBackgroundColor,
+      activeColor,
+      activeView,
+      colors,
+      logo,
+      menuItem,
+    } = this.props
+
+    activeBackgroundColor && store.setState({ activeBackgroundColor })
+    activeColor && store.setState({ activeColor })
+    activeView && store.setState({ activeView })
+    colors && store.setState({ colors })
 
     return (
       <Provider store={store}>
         <View id="RootScenarioContainer" style={{ height: '100%' }}>
-          <ScenarioContainer
-            colorPalette={colorPalette}
-            logo={logo}
-            menuItem={menuItem}
-          />
+          <ScenarioContainer logo={logo} menuItem={menuItem} />
         </View>
       </Provider>
     )
