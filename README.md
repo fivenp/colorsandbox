@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://colorsandbox.netlify.com"><img src="https://user-images.githubusercontent.com/132332/52920033-968ba580-3308-11e9-8230-24fe21e3a491.png" style="border:0;max-width:100%" alt="ColorSandbox logo" title="ColorSandbox logo"></a>
+  <a href="https://colorsandbox.netlify.com"><img src="https://user-images.githubusercontent.com/132332/53668987-de4ded80-3c75-11e9-8c80-a3707de6bcf0.png" style="border:0;max-width:100%" alt="ColorSandbox logo" title="ColorSandbox logo"></a>
   <br>
 </h1>
 <p align="center" style="font-size: 1.2rem;">A toolkit to clevery abstract, manage, document, export and preview your color palettes</p>
