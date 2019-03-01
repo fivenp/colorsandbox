@@ -28,7 +28,7 @@ class Logo extends React.Component<ILogoProps> {
         <Drop color="#24C333" gradientColor="#13A021" size={0.07} />
         <View style={{ marginLeft: 5, textTransform: 'uppercase' }}>
           <Text logoFont color={textColor} size="xs">
-            scenario
+            ColorSandbox
           </Text>
         </View>
       </View>

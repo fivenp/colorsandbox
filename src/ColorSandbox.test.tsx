@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Scenario from './Scenario'
+import ColorSandbox from './ColorSandbox'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<Scenario />, div)
+  ReactDOM.render(<ColorSandbox />, div)
   ReactDOM.unmountComponentAtNode(div)
 })

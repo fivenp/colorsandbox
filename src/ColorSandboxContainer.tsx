@@ -17,7 +17,7 @@ import { matchingTextColor } from './utils/contrast'
 import basicActions from './store/actions/basic'
 import navbarActions from './store/actions/navbar'
 
-export interface IScenarioContainerProps {
+export interface IColorSandboxContainerProps {
   readonly activeColor: number
   readonly activeBackgroundColor: number
   readonly activeView: 'ColorDrop' | 'ColorVariations' | 'Typography'
@@ -36,7 +36,9 @@ const styles = {
   none: css({}),
 }
 
-class ScenarioContainer extends React.Component<IScenarioContainerProps> {
+class ColorSandboxContainer extends React.Component<
+  IColorSandboxContainerProps
+> {
   public readonly state = {
     activeColor: this.props.activeColor,
     activeBackgroundColor: this.props.activeBackgroundColor,
@@ -225,4 +227,4 @@ const mapStateToProps = ({
 export default connect(
   mapStateToProps,
   combineActions(basicActions, navbarActions),
-)(ScenarioContainer)
+)(ColorSandboxContainer)

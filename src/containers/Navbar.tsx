@@ -173,10 +173,10 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
 
           <View
             onClick={() =>
-              window.open('https://github.com/fivenp/scenario', '_blank')
+              window.open('https://github.com/fivenp/colorsandbox', '_blank')
             }
             {...css([styles.icon, { borderLeftColor: separatorColor }])}
-            title="Scenario - ColorPalette Documentation"
+            title="ColorSandbox - ColorPalette Documentation"
           >
             <LogoGithub color={textColor} />
           </View>

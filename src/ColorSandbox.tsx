@@ -2,10 +2,10 @@ import React from 'react'
 import { Provider } from 'redux-zero/react'
 import { View } from '@allthings/elements'
 import store from './store/initial'
-import ScenarioContainer from './ScenarioContainer'
+import ColorSandboxContainer from './ColorSandboxContainer'
 import { IColors } from './utils/interfaces'
 
-export interface IScenarioProps {
+export interface IColorSandboxProps {
   readonly activeColor?: number
   readonly activeBackgroundColor?: number
   readonly activeView?: 'ColorDrop' | 'ColorVariations' | 'Typography'
@@ -13,7 +13,7 @@ export interface IScenarioProps {
   readonly logo?: React.ReactElement<any>
   readonly menuItem?: React.ReactElement<any>
 }
-class Scenario extends React.Component<IScenarioProps> {
+class ColorSandbox extends React.Component<IColorSandboxProps> {
   public render(): JSX.Element {
     const {
       activeBackgroundColor,
@@ -31,12 +31,12 @@ class Scenario extends React.Component<IScenarioProps> {
 
     return (
       <Provider store={store}>
-        <View id="RootScenarioContainer" style={{ height: '100%' }}>
-          <ScenarioContainer logo={logo} menuItem={menuItem} />
+        <View id="ColorSandboxContainer" style={{ height: '100%' }}>
+          <ColorSandboxContainer logo={logo} menuItem={menuItem} />
         </View>
       </Provider>
     )
   }
 }
 
-export default Scenario
+export default ColorSandbox

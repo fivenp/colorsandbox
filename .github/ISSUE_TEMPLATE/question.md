@@ -10,7 +10,7 @@ about: Have any questions?
 ## Your Environment
 | Software         | Name/Version|
 | ---------------- | ---------- |
-| Scenario |
+| ColorSandbox |
 | Framework integrating it |
 | Browser |
 | Operating System |
