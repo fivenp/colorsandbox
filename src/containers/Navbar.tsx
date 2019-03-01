@@ -88,7 +88,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 styles.activeIcon,
                 { borderLeftColor: separatorColor },
               ])}
-              title="Toggle my Color Palette"
+              title="(p) Toggle my Color Palette"
             >
               <IosColorPalette color={textColor} />
             </View>
@@ -96,7 +96,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
             <View
               onClick={this.props.togglePalette}
               {...css([styles.icon, { borderLeftColor: separatorColor }])}
-              title="Toggle my Color Palette"
+              title="(p) Toggle my Color Palette"
             >
               <IosColorPaletteOutline color={textColor} />
             </View>
@@ -109,7 +109,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 styles.activeIcon,
                 { borderLeftColor: separatorColor },
               ])}
-              title="Color harmony view"
+              title="(h) Color harmony view"
             >
               <IosColorFilter color={textColor} />
             </View>
@@ -119,7 +119,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 this.props.setActiveView('ColorDrop')
               }}
               {...css([styles.icon, { borderLeftColor: separatorColor }])}
-              title="Color harmony view"
+              title="(h) Color harmony view"
             >
               <IosColorFilterOutline color={textColor} />
             </View>
@@ -132,7 +132,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 styles.activeIcon,
                 { borderLeftColor: separatorColor },
               ])}
-              title="Fullsize color view"
+              title="(f) Fullsize color view"
             >
               <IosColorFill color={textColor} />
             </View>
@@ -142,7 +142,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 this.props.setActiveView('ColorVariations')
               }}
               {...css([styles.icon, { borderLeftColor: separatorColor }])}
-              title="Fullsize color view"
+              title="(f) Fullsize color view"
             >
               <IosColorFillOutline color={textColor} />
             </View>
@@ -155,7 +155,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 styles.activeIcon,
                 { borderLeftColor: separatorColor },
               ])}
-              title="Typography view"
+              title="(t) Typography view"
             >
               <IosListBox color={textColor} />
             </View>
@@ -165,7 +165,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
                 this.props.setActiveView('Typography')
               }}
               {...css([styles.icon, { borderLeftColor: separatorColor }])}
-              title="Typography view"
+              title="(t) Typography view"
             >
               <IosListBoxOutline color={textColor} />
             </View>

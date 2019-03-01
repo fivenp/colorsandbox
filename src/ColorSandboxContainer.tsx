@@ -89,7 +89,7 @@ class ColorSandboxContainer extends React.Component<
       case 'f':
         this.props.setActiveView('ColorVariations')
         break
-      case 'c':
+      case 'h':
         this.props.setActiveView('ColorDrop')
         break
       case 'p':
