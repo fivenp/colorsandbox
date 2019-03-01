@@ -13,7 +13,23 @@ export interface IColorSandboxProps {
   readonly logo?: React.ReactElement<any>
   readonly menuItem?: React.ReactElement<any>
 }
-class ColorSandbox extends React.Component<IColorSandboxProps> {
+
+export interface IColorSandboxState {
+  readonly container?: HTMLDivElement
+}
+class ColorSandbox extends React.Component<
+  IColorSandboxProps,
+  IColorSandboxState
+> {
+  state = { container: document.createElement('div') }
+
+  setContainerRef = (containerEl: HTMLDivElement) =>
+    this.setState({ container: containerEl })
+
+  public handleBackgroundColorChange = (color: string) => {
+    this.state.container.style.backgroundColor = color
+  }
+
   public render(): JSX.Element {
     const {
       activeBackgroundColor,
@@ -31,8 +47,16 @@ class ColorSandbox extends React.Component<IColorSandboxProps> {
 
     return (
       <Provider store={store}>
-        <View id="ColorSandboxContainer" style={{ height: '100%' }}>
-          <ColorSandboxContainer logo={logo} menuItem={menuItem} />
+        <View
+          id="ColorSandboxContainer"
+          onRef={this.setContainerRef}
+          style={{ height: '100%', transition: 'background 0.5s ease-in-out' }}
+        >
+          <ColorSandboxContainer
+            onBackgroundChange={this.handleBackgroundColorChange}
+            logo={logo}
+            menuItem={menuItem}
+          />
         </View>
       </Provider>
     )

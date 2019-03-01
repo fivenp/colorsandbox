@@ -25,6 +25,7 @@ export interface IColorSandboxContainerProps {
   readonly colors: IColors
   readonly logo?: React.ReactElement<any>
   readonly menuItem?: React.ReactElement<any>
+  readonly onBackgroundChange: (color: string) => void
   readonly paletteIsOpen: boolean
   readonly setActiveBackgroundColor: (value: number) => void
   readonly setActiveColor: (value: number) => void
@@ -105,25 +106,25 @@ class ColorSandboxContainer extends React.Component<
       activeView,
       backgroundColors,
       colors,
+      onBackgroundChange,
       paletteIsOpen,
     } = this.props
 
-    document.body.style.backgroundColor = Object.values(backgroundColors)[
-      activeBackgroundColor
-    ]
+    onBackgroundChange(Object.values(backgroundColors)[activeBackgroundColor])
+
     document.onkeydown = this.checkKey
 
     const color = Object.values(colors)[activeColor]
     const colorName = Object.keys(colors)[activeColor]
 
+    const backgroundColor = Object.values(backgroundColors)[
+      activeBackgroundColor
+    ]
     const backgroundColorName = Object.keys(backgroundColors)[
       activeBackgroundColor
     ]
 
-    const textColor = matchingTextColor(
-      textColors.dark,
-      document.body.style.backgroundColor,
-    )
+    const textColor = matchingTextColor(textColors.dark, backgroundColor)
     const textColorLight = opacity(textColor, 0.4)
     const separatorColor = opacity(textColor, 0.1)
 
@@ -196,9 +197,7 @@ class ColorSandboxContainer extends React.Component<
               width: '100%',
             }}
           >
-            {activeView === 'ColorDrop' && (
-              <ColorDrop color={color} colorName={colorName} />
-            )}
+            {activeView === 'ColorDrop' && <ColorDrop />}
             {activeView === 'ColorVariations' && <ColorVariations />}
             {activeView === 'Typography' && <Typography />}
           </View>

@@ -8,15 +8,15 @@ import Drop from './Drop'
 
 interface ILogoProps {
   readonly activeView: string
+  readonly color: string
   readonly paletteIsOpen: boolean
 }
 class Logo extends React.Component<ILogoProps> {
   public render(): JSX.Element {
-    const bgColor = document.body.style.backgroundColor || '#ffffff'
     const textColor = /*this.props.activeView === 'Typography' || */ this.props
       .paletteIsOpen
       ? textColors.dark
-      : matchingTextColor(textColors.dark, bgColor)
+      : this.props.color
 
     return (
       <View

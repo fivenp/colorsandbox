@@ -1,34 +1,37 @@
 import * as React from 'react'
 import * as convert from 'color-convert'
+import { connect } from 'redux-zero/react'
 import { View } from '@allthings/elements'
 import ConvertedColorValues from '../components/ConvertedColorValues'
 import Drop from '../components/Drop'
 import Text from '../components/Text'
 import { matchingTextColor } from '../utils/contrast'
 import { opacity, lighten, darken } from '../utils/conversions'
+import { IColors } from '../utils/interfaces'
 import { textColors } from '../utils/palette'
 import SeparatorText from '../components/SeparatorText'
 
 export interface IColorDropProps {
-  readonly color: string
-  readonly colorName?: string
+  readonly activeColor: number
+  readonly activeBackgroundColor: number
+  readonly backgroundColors: IColors
+  readonly colors: IColors
 }
 
-interface IColorDropState {
-  readonly color: string
-  readonly colorName: string
-}
-
-class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
-  public readonly state = {
-    color: '#000000',
-    colorName: '',
-  }
-
+class ColorDrop extends React.Component<IColorDropProps> {
   public render(): JSX.Element {
-    const { color, colorName } = this.props
+    const {
+      activeColor,
+      activeBackgroundColor,
+      backgroundColors,
+      colors,
+    } = this.props
 
-    const bgColor = document.body.style.backgroundColor || '#fff000'
+    const color = Object.values(colors)[activeColor]
+    const bgColor = Object.values(backgroundColors)[activeBackgroundColor]
+
+    const colorName = Object.keys(colors)[activeColor]
+
     const textColor = matchingTextColor(textColors.dark, bgColor)
     const textColorLight = opacity(textColor, 0.4)
 
@@ -58,7 +61,12 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
         <View direction="column" alignV="center" alignH="center">
           <View style={{ top: 40, position: 'absolute', zIndex: 3 }}>
             <View>
-              <Drop color={convertedColor.lightened.hex} stroke size={0.3} />
+              <Drop
+                color={convertedColor.lightened.hex}
+                strokeColor={bgColor}
+                stroke
+                size={0.3}
+              />
             </View>
             <SeparatorText
               bgColor={bgColor}
@@ -69,10 +77,15 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
           </View>
           <View style={{ position: 'relative', zIndex: 2 }}>
             {/* <Drop color={color} gradientColor={convertedColor.darkened.hex} stroke size={1.3} /> */}
-            <Drop color={color} stroke size={1.3} />
+            <Drop color={color} stroke strokeColor={bgColor} size={1.3} />
           </View>
           <View style={{ bottom: 40, position: 'absolute', zIndex: 3 }}>
-            <Drop color={convertedColor.darkened.hex} stroke size={0.3} />
+            <Drop
+              color={convertedColor.darkened.hex}
+              stroke
+              strokeColor={bgColor}
+              size={0.3}
+            />
             <SeparatorText
               bgColor={bgColor}
               textColor={textColor}
@@ -96,31 +109,31 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
         <View direction="column">
           <View direction="row" alignV="center" style={{ marginLeft: -30 }}>
             <View style={{ opacity: 0.9 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.8 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.7 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.6 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.5 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.4 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.3 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.2 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <View style={{ opacity: 0.1 }} alignV="center">
-              <Drop color={color} stroke size={0.06} />
+              <Drop color={color} stroke strokeColor={bgColor} size={0.06} />
             </View>
             <Text color={textColorLight} size="xs" style={{ marginLeft: 10 }}>
               opacity(0.9) - opacity(0.1)
@@ -145,4 +158,15 @@ class ColorDrop extends React.Component<IColorDropProps, IColorDropState> {
   }
 }
 
-export default ColorDrop
+const mapStateToProps = ({
+  activeColor,
+  activeBackgroundColor,
+  colors,
+}: any) => ({
+  activeColor,
+  activeBackgroundColor,
+  backgroundColors: { white: '#ffffff', black: '#000000', ...colors },
+  colors,
+})
+
+export default connect(mapStateToProps)(ColorDrop)
