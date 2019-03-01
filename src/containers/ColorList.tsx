@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import Drop from '../components/Drop'
 import Text from '../components/Text'
+import { opacity } from '../utils/conversions'
+import { IColors } from '../utils/interfaces'
 import { textColors } from '../utils/palette'
 import basicActions from '../store/actions/basic'
 import { css } from 'glamor'
@@ -18,10 +19,6 @@ export interface IColorListProps {
   readonly isBottomPalette?: boolean
   readonly setActiveBackgroundColor: (value: number) => void
   readonly setActiveColor: (value: number) => void
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 const styles = {
@@ -69,7 +66,7 @@ class ColorList extends React.Component<IColorListProps> {
       textColor,
     } = this.props
 
-    const separatorColor = alpha(textColor, 0.1)
+    const separatorColor = opacity(textColor, 0.1)
 
     return (
       <View
@@ -111,7 +108,7 @@ class ColorList extends React.Component<IColorListProps> {
                 size={0.07}
               />
               <Text
-                color={alpha(textColors.dark, 0.4)}
+                color={opacity(textColors.dark, 0.4)}
                 size="xs"
                 style={{ marginLeft: 5 }}
               >

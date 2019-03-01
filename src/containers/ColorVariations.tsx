@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as convert from 'color-convert'
-import { Icon, View } from '@allthings/elements'
+import { View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import { css } from 'glamor'
 import Text from '../components/Text'
@@ -8,6 +8,7 @@ import ConvertedColorValues from '../components/ConvertedColorValues'
 import { opacity, lighten, darken } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
+import { IColors } from '../utils/interfaces'
 import SeparatorText from '../components/SeparatorText'
 
 export interface IColorVariationsProps {
@@ -15,10 +16,6 @@ export interface IColorVariationsProps {
   readonly activeBackgroundColor: number
   readonly backgroundColors: IColors
   readonly colors: IColors
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 export interface IColorVariationsState {
@@ -218,7 +215,7 @@ class ColorVariations extends React.Component<
           >
             <SeparatorText
               bgColor={convertedColor.darkened.hex}
-              text={`alpha() on ${bgColorName}`}
+              text={`opacity() on ${bgColorName}`}
               direction="top"
             />
           </View>
@@ -235,7 +232,11 @@ class ColorVariations extends React.Component<
           >
             <SeparatorText
               bgColor={convertedColor.darkened.hex}
-              text={`gradient()`}
+              text={
+                withGradient
+                  ? `gradient() - linear-gradient(170deg) from darken(${colorName}) to ${colorName}`
+                  : `gradient()`
+              }
             />
           </View>
           {this.renderColorBox(
@@ -255,7 +256,7 @@ class ColorVariations extends React.Component<
           >
             <SeparatorText
               bgColor={convertedColor.base.hex}
-              text={`alpha() on white`}
+              text={`opacity() on white`}
               direction="bottom"
             />
           </View>
@@ -301,7 +302,7 @@ const mapStateToProps = ({
 }: any) => ({
   activeColor,
   activeBackgroundColor,
-  backgroundColors: { white: '#ffffff', ...colors },
+  backgroundColors: { white: '#ffffff', black: '#000000', ...colors },
   colors,
 })
 

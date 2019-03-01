@@ -1,6 +1,4 @@
-// import { ColorPalette } from '@allthings/colors'
 import * as React from 'react'
-import { View } from '@allthings/elements'
 
 export interface IDropProps {
   readonly color: string

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { alpha, ColorPalette } from '@allthings/colors'
-import { Icon, View } from '@allthings/elements'
+import { View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import Logo from '../components/Logo'
 
@@ -13,7 +12,7 @@ import IosColorFilter from 'react-ionicons/lib/IosColorFilter'
 import IosListBoxOutline from 'react-ionicons/lib/IosListBoxOutline'
 import IosListBox from 'react-ionicons/lib/IosListBox'
 import LogoGithub from 'react-ionicons/lib/LogoGithub'
-import { css, style } from 'glamor'
+import { css } from 'glamor'
 
 import navbarActions from '../store/actions/navbar'
 

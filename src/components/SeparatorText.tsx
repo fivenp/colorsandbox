@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { alpha } from '@allthings/colors'
 import { View } from '@allthings/elements'
 import Text from '../components/Text'
 import { matchingTextColor } from '../utils/contrast'
+import { opacity } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 
 interface ISeparatorTextProp {
@@ -20,7 +20,7 @@ class SeparatorText extends React.Component<ISeparatorTextProp> {
     const textColor = this.props.textColor
       ? this.props.textColor
       : matchingTextColor(textColors.dark, bgColor)
-    const textColorLight = alpha(textColor, 0.4)
+    const textColorLight = opacity(textColor, 0.4)
 
     return (
       <View
@@ -35,9 +35,7 @@ class SeparatorText extends React.Component<ISeparatorTextProp> {
         alignV={
           direction === 'top' || direction === 'bottom' ? 'end' : 'center'
         }
-        alignH={
-          direction === 'top' || direction === 'bottom' ? 'end' : 'center'
-        }
+        alignH={direction === 'top' || direction === 'bottom' ? 'end' : 'start'}
         style={{
           position: 'absolute',
           zIndex: 2,
@@ -56,10 +54,10 @@ class SeparatorText extends React.Component<ISeparatorTextProp> {
             borderTop:
               direction === 'top' || direction === 'bottom'
                 ? 'none'
-                : `1px dashed ${alpha(textColor, 0.2)}`,
+                : `1px dashed ${opacity(textColor, 0.2)}`,
             borderLeft:
               direction === 'top' || direction === 'bottom'
-                ? `1px dashed ${alpha(textColor, 0.2)}`
+                ? `1px dashed ${opacity(textColor, 0.2)}`
                 : 'none',
             marginLeft: direction === 'top' || direction === 'bottom' ? 0 : 10,
             marginRight: direction === 'top' || direction === 'bottom' ? 0 : 10,
@@ -69,7 +67,12 @@ class SeparatorText extends React.Component<ISeparatorTextProp> {
             zIndex: 1,
           }}
         />
-        <Text color={matchingTextColor(textColorLight, bgColor, 1.2)} size="xs">
+        <Text
+          autoBreak
+          block
+          color={matchingTextColor(textColorLight, bgColor, 1.2)}
+          size="xs"
+        >
           {text}
         </Text>
       </View>

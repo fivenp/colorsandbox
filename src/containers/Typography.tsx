@@ -1,22 +1,18 @@
 import * as React from 'react'
-import { alpha, ColorPalette } from '@allthings/colors'
-import { Icon, View } from '@allthings/elements'
+import { View } from '@allthings/elements'
 import { connect } from 'redux-zero/react'
 import { css } from 'glamor'
 import Text from '../components/Text'
+import { opacity } from '../utils/conversions'
 import { textColors } from '../utils/palette'
 import { matchingTextColor } from '../utils/contrast'
-import Drop from '../components/Drop'
+import { IColors } from '../utils/interfaces'
 
 export interface ITypographyProps {
   readonly activeColor: number
   readonly activeBackgroundColor: number
   readonly backgroundColors: IColors
   readonly colors: IColors
-}
-
-export interface IColors {
-  readonly [key: string]: string
 }
 
 const styles = {
@@ -48,7 +44,7 @@ class Typography extends React.Component<ITypographyProps> {
         This is a sample content in 13px fontSize
       </Text>
       <Text size="xs" color={colorLight}>
-        This is even smaller copytext with alpha() and 11px fontSize
+        This is even smaller copytext with opacity() and 11px fontSize
       </Text>
     </React.Fragment>
   )
@@ -67,7 +63,7 @@ class Typography extends React.Component<ITypographyProps> {
     const bgColorName = Object.keys(backgroundColors)[activeBackgroundColor]
 
     const textColor = matchingTextColor(textColors.dark, color)
-    const textColorLight = alpha(textColor, 0.4)
+    const textColorLight = opacity(textColor, 0.4)
 
     return (
       <View direction="row" fill>
@@ -86,7 +82,7 @@ class Typography extends React.Component<ITypographyProps> {
           >
             {this.renderText(
               color,
-              alpha(color, 0.4),
+              opacity(color, 0.4),
               colorName,
               `on bright background`,
             )}
@@ -126,7 +122,7 @@ class Typography extends React.Component<ITypographyProps> {
           >
             {this.renderText(
               color,
-              alpha(color, 0.4),
+              opacity(color, 0.4),
               colorName,
               `on ${bgColorName} background`,
             )}
@@ -145,7 +141,7 @@ class Typography extends React.Component<ITypographyProps> {
           >
             {this.renderText(
               color,
-              alpha(color, 0.4),
+              opacity(color, 0.4),
               colorName,
               `on dark background`,
             )}
