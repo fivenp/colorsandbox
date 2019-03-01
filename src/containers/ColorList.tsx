@@ -130,7 +130,7 @@ const mapStateToProps = ({
 }: any) => ({
   activeColor,
   activeBackgroundColor,
-  backgroundColors: { white: '#ffffff', ...colors },
+  backgroundColors: { white: '#ffffff', black: '#000000', ...colors },
   colors,
   paletteIsOpen,
 })
