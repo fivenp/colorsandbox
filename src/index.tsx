@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Scenario from './Scenario'
+import ColorSandbox from './ColorSandbox'
 import * as serviceWorker from './serviceWorker'
 import './index.css'
 
-ReactDOM.render(<Scenario />, document.getElementById('root'))
+ReactDOM.render(<ColorSandbox />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

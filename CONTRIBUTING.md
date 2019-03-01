@@ -1,4 +1,4 @@
-# Contributing to Scenario
+# Contributing to ColorSandbox
 
 This guide was basically copy and pasted from the beloved people at [CodeSandbox](https://codesandbox.io)
 
@@ -11,7 +11,7 @@ This guide was basically copy and pasted from the beloved people at [CodeSandbox
 
 ## Code of Conduct
 
-We have a code of conduct you can find [here](https://github.com/fivenp/scenario/blob/master/CODE_OF_CONDUCT.md) and every contributor is expected to obey the rules therein. Any issues or PRs that don't abide by the code of conduct may be closed.
+We have a code of conduct you can find [here](https://github.com/fivenp/colorsandbox/blob/master/CODE_OF_CONDUCT.md) and every contributor is expected to obey the rules therein. Any issues or PRs that don't abide by the code of conduct may be closed.
 
 ## Setting Up the project locally
 
@@ -23,10 +23,10 @@ To install the project you need to have `yarn` and `node`
 
     ```
     # Clone your fork
-    git clone https://github.com/<your-username>/scenario.git
+    git clone https://github.com/<your-username>/colorsandbox.git
 
     # Navigate to the newly cloned directory
-    cd scenario
+    cd colorsandbox
     ```
 
 2.  `yarn` to install dependencies
@@ -38,7 +38,7 @@ To install the project you need to have `yarn` and `node`
 > pull requests from branches on your fork. To do this, run:
 >
 > ```
-> git remote add upstream https://github.com/fivenp/scenario.git
+> git remote add upstream https://github.com/fivenp/colorsandbox.git
 > git fetch upstream
 > git branch --set-upstream-to=upstream/master master
 > ```
