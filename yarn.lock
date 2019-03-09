@@ -6,9 +6,9 @@
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@allthings/colors/-/colors-3.2.0.tgz#cb969adf5edfd86603c9395dd5c203da58aa29be"
 
-"@allthings/elements@4.2.5":
-  version "4.2.5"
-  resolved "https://registry.yarnpkg.com/@allthings/elements/-/elements-4.2.5.tgz#77eb21656e9ee7f925c4d0bc939de12940a6e9ed"
+"@allthings/elements@4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@allthings/elements/-/elements-4.2.6.tgz#80692ff0be6ff90d259a8df346d67768d125f3e7"
   dependencies:
     "@allthings/colors" "3.2.0"
     downshift "3.2.6"
