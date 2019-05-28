@@ -15,7 +15,7 @@
     "@types/color-convert": "1.9.0",
     "@types/jest": "24.0.13",
     "@types/node": "12.0.3",
-    "@types/react": "16.8.18",
+    "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
     "husky": "2.3.0",
     "lint-staged": "8.1.7",
