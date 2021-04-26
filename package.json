@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/color-convert": "1.9.0",
     "@types/jest": "26.0.14",
-    "@types/node": "14.14.42",
+    "@types/node": "15.0.0",
     "@types/react": "17.0.4",
     "@types/react-dom": "17.0.3",
     "husky": "6.0.0",
