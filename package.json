@@ -5,7 +5,7 @@
   "dependencies": {
     "@allthings/elements": "4.2.6",
     "color-contrast": "0.0.1",
-    "color-convert": "2.0.0",
+    "color-convert": "2.0.1",
     "glamor": "2.20.40",
     "neue": "1.0.0",
     "react-ionicons": "3.0.1",
