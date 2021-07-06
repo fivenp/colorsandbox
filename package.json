@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@allthings/elements": "4.2.6",
-    "color-contrast": "0.0.1",
+    "color-contrast": "1.0.0",
     "color-convert": "2.0.0",
     "glamor": "2.20.40",
     "neue": "1.0.0",
