@@ -5,14 +5,14 @@
   "dependencies": {
     "@allthings/elements": "4.2.6",
     "color-contrast": "0.0.1",
-    "color-convert": "2.0.0",
+    "color-convert": "2.0.1",
     "glamor": "2.20.40",
     "neue": "1.0.0",
     "react-ionicons": "3.0.1",
     "redux-zero": "4.15.2"
   },
   "devDependencies": {
-    "@types/color-convert": "1.9.0",
+    "@types/color-convert": "2.0.0",
     "@types/jest": "26.0.14",
     "@types/node": "16.4.0",
     "@types/react": "17.0.14",
