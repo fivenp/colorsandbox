@@ -3131,13 +3131,6 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-buffer@^5.0.3:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.2.1.tgz#dd57fa0f109ac59c602479044dca7b8b3d0b71d6"
-  dependencies:
-    base64-js "^1.0.2"
-    ieee754 "^1.1.4"
-
 builtin-modules@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.2.0.tgz#45d5db99e7ee5e6bc4f362e008bf917ab5049887"
@@ -3263,10 +3256,6 @@ camelcase@^6.0.0, camelcase@^6.1.0, camelcase@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
-
-camelize@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
 
 caniuse-api@^3.0.0:
   version "3.0.0"
@@ -3851,10 +3840,6 @@ css-blank-pseudo@^0.1.4:
   dependencies:
     postcss "^7.0.5"
 
-css-color-keywords@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
-
 css-color-names@0.0.4, css-color-names@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -3927,14 +3912,6 @@ css-select@^4.1.3:
     domhandler "^4.2.0"
     domutils "^2.6.0"
     nth-check "^2.0.0"
-
-css-to-react-native@^2.0.3:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-2.3.0.tgz#bf80d24ec4a08e430306ef429c0586e6ed5485f7"
-  dependencies:
-    camelize "^1.0.0"
-    css-color-keywords "^1.0.0"
-    postcss-value-parser "^3.3.0"
 
 css-tree@1.0.0-alpha.28:
   version "1.0.0-alpha.28"
@@ -5192,7 +5169,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.1, fbjs@^0.8.12, fbjs@^0.8.4, fbjs@^0.8.9:
+fbjs@^0.8.12, fbjs@^0.8.9:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -5673,10 +5650,6 @@ has-bigints@^1.0.1:
   resolved "https://registry.yarnpkg.com/has-bigints/-/has-bigints-1.0.1.tgz#64fe6acb020673e3b78db035a5af69aa9d07b113"
   integrity sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==
 
-has-flag@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
-
 has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
@@ -5772,10 +5745,6 @@ hmac-drbg@^1.0.0:
     hash.js "^1.0.3"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
-
-hoist-non-react-statics@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
 hoopy@^0.1.4:
   version "0.1.4"
@@ -6318,10 +6287,6 @@ is-fullwidth-code-point@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz#f116f8064fe90b3f7844a38997c0b75051269f1d"
   integrity sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==
-
-is-function@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-function/-/is-function-1.0.1.tgz#12cfb98b65b57dd3d193a3121f5f6e2f437602b5"
 
 is-generator-fn@^2.0.0:
   version "2.1.0"
@@ -9223,7 +9188,7 @@ postcss-unique-selectors@^4.0.1:
     postcss "^7.0.0"
     uniqs "^2.0.0"
 
-postcss-value-parser@^3.0.0, postcss-value-parser@^3.3.0, postcss-value-parser@^3.3.1:
+postcss-value-parser@^3.0.0, postcss-value-parser@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
 
@@ -9368,7 +9333,7 @@ prop-types@15.5.10:
     fbjs "^0.8.9"
     loose-envify "^1.3.1"
 
-prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -9576,13 +9541,14 @@ react-dev-utils@^11.0.3:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
+react-dom@17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
+  integrity sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug==
   dependencies:
-    fbjs "^0.8.1"
     loose-envify "^1.1.0"
-    object-assign "^4.1.0"
+    object-assign "^4.1.1"
+    scheduler "^0.20.1"
 
 react-dom@^17.0.0:
   version "17.0.0"
@@ -9598,14 +9564,14 @@ react-error-overlay@^6.0.9:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
 
-react-ionicons@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-ionicons/-/react-ionicons-3.0.1.tgz#0378a34c214c653c4c7d120860a679d6de8085cf"
+react-ionicons@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-ionicons/-/react-ionicons-4.2.0.tgz#6fd388ad08db9369ee11180437619f6064319226"
+  integrity sha512-EBZtrnK4Uyro8WYy0fKbGop/wmFkn3DxfY1i730FZSUJP6IIoJbTk58d6DqBdo8alHmAN4STBLzE9t33tBO8dg==
   dependencies:
     prop-types "15.5.10"
-    react "15.4.2"
-    react-dom "15.4.2"
-    styled-components "2.2.3"
+    react "17.0.1"
+    react-dom "17.0.1"
 
 react-is@^16.12.0:
   version "16.12.0"
@@ -9712,13 +9678,13 @@ react-scripts@4.0.3:
   optionalDependencies:
     fsevents "^2.1.3"
 
-react@15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
+react@17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
+  integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
   dependencies:
-    fbjs "^0.8.4"
     loose-envify "^1.1.0"
-    object-assign "^4.1.0"
+    object-assign "^4.1.1"
 
 react@^17.0.0:
   version "17.0.0"
@@ -10211,6 +10177,14 @@ scheduler@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.0.tgz#3ff543696b169613afadb09d3fb3fe998d234dd2"
   integrity sha512-XegIgta1bIaz2LdaL6eg1GEcE42g0BY9qFXCqlZ/+s2MuEKfigFCW6DEGBlZzeVFlwDmVusrWEyFtBo4sbkkdA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.20.1:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
+  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10885,20 +10859,6 @@ style-loader@1.3.0:
     loader-utils "^2.0.0"
     schema-utils "^2.7.0"
 
-styled-components@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.2.3.tgz#154575c269880c840f903f580287dab155cf684c"
-  dependencies:
-    buffer "^5.0.3"
-    css-to-react-native "^2.0.3"
-    fbjs "^0.8.9"
-    hoist-non-react-statics "^1.2.0"
-    is-function "^1.0.1"
-    is-plain-object "^2.0.1"
-    prop-types "^15.5.4"
-    stylis "3.x"
-    supports-color "^3.2.3"
-
 stylehacks@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/stylehacks/-/stylehacks-4.0.3.tgz#6718fcaf4d1e07d8a1318690881e8d96726a71d5"
@@ -10907,19 +10867,9 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylis@3.x:
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
-
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
-
-supports-color@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
-  dependencies:
-    has-flag "^1.0.0"
 
 supports-color@^5.3.0:
   version "5.5.0"
