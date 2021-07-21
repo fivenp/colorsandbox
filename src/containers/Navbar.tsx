@@ -78,7 +78,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
           height: 40,
         }}
       >
-        <Logo />
+        <Logo color={textColor} />
         <View direction="row" alignV="center" style={{ marginRight: 10 }}>
           {paletteIsOpen === true ? (
             <View

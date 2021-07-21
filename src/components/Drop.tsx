@@ -5,14 +5,14 @@ export interface IDropProps {
   readonly gradientColor?: string
   readonly size?: number
   readonly stroke?: boolean
+  readonly strokeColor?: string
 }
 
 class Drop extends React.Component<IDropProps> {
   public render(): JSX.Element {
-    const { color, gradientColor, size, stroke } = this.props
+    const { color, gradientColor, size, stroke, strokeColor } = this.props
 
     const scale = size || 1
-    const strokeColor = document.body.style.backgroundColor || 'white'
 
     return (
       <svg
@@ -43,9 +43,12 @@ class Drop extends React.Component<IDropProps> {
           fill={gradientColor ? 'url(#gradient)' : color}
           fillRule="nonzero"
           strokeWidth={stroke ? 30 : 0}
-          stroke={strokeColor}
+          stroke={strokeColor || '#ffffff'}
           strokeLinecap="round"
           strokeLinejoin="round"
+          style={{
+            transition: 'fill 0.5s ease-in-out, stroke 0.5s ease-in-out',
+          }}
         />
       </svg>
     )
