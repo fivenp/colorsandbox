@@ -9,7 +9,7 @@
     "glamor": "2.20.40",
     "neue": "1.0.0",
     "react-ionicons": "3.0.1",
-    "redux-zero": "4.15.2"
+    "redux-zero": "5.1.7"
   },
   "devDependencies": {
     "@types/color-convert": "1.9.0",
